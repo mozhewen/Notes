@@ -1,0 +1,1260 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+% 公式（amsmath）
+\allowdisplaybreaks[3]
+
+% 段间距置0
+\setlength{\parskip}{0pt}
+
+% 避免脚注换页
+\interfootnotelinepenalty=10000
+
+% 定理证明
+\usepackage{amsthm}
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+theorems-bytype
+theorems-sec-bytype
+\end_modules
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package default
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_title "诺特定理"
+\pdf_author "莫哲文"
+\pdf_subject "Notes"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3.17cm
+\topmargin 2.54cm
+\rightmargin 3.17cm
+\bottommargin 2.54cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+诺特定理
+\end_layout
+
+\begin_layout Section
+有限自由度体系
+\end_layout
+
+\begin_layout Subsection
+一般讨论
+\end_layout
+
+\begin_layout Standard
+设有限自由度体系有广义坐标
+\begin_inset Formula $q_{\alpha}\left(t\right),\:\alpha=1,2,\ldots,r$
+\end_inset
+
+，
+\begin_inset Formula $r$
+\end_inset
+
+为体系的自由度，下面为了简化讨论将
+\begin_inset Formula $q_{\alpha}\left(t\right)$
+\end_inset
+
+简记为
+\begin_inset Formula $q\left(t\right)$
+\end_inset
+
+，下标
+\begin_inset Formula $\alpha$
+\end_inset
+
+很容易还原到最后的结果中．体系的作用量可以写为
+\begin_inset Formula 
+\[
+S\left[q;t_{1},t_{2}\right]=\int_{t_{1}}^{t_{2}}L\left(q\left(t\right),\dot{q}\left(t\right),t\right)\mathrm{d}t
+\]
+
+\end_inset
+
+由最小作用量原理：给定初始时刻
+\begin_inset Formula $t_{1}$
+\end_inset
+
+和终止时刻
+\begin_inset Formula $t_{2}$
+\end_inset
+
+的广义坐标取值
+\begin_inset Formula $q\left(t_{1}\right),q\left(t_{2}\right)$
+\end_inset
+
+，体系从
+\begin_inset Formula $q\left(t_{1}\right)$
+\end_inset
+
+运动到
+\begin_inset Formula $q\left(t_{2}\right)$
+\end_inset
+
+所经历的真实路径是所有路径之中使得作用量取驻值的，即满足：
+\begin_inset Formula 
+\[
+\frac{\delta S}{\delta q}=\frac{\partial L}{\partial q}-\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{q}}=0
+\]
+
+\end_inset
+
+这就是体系的运动方程，称为欧拉－拉格朗日方程．
+\end_layout
+
+\begin_layout Standard
+考虑体系的一个变换
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}t & \rightarrow t'=f_{\varepsilon}\left(t\right)\\
+q\left(t\right) & \rightarrow q'\left(t'\right)\quad(q'=F_{\varepsilon}\left[q\right])
+\end{aligned}
+\label{eq:finite-general-trans}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+为变换的参数，并且
+\begin_inset Formula $f_{0},F_{0}$
+\end_inset
+
+为恒等函数，中括号表示
+\begin_inset Formula $q\left(t\right)$
+\end_inset
+
+函数本身（而不是函数值）作为自变量．变换后系统的运动规律一般对应一个新的作用量（即在
+\begin_inset Formula $S$
+\end_inset
+
+中将
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-general-trans"
+
+\end_inset
+
+式的逆代入）
+\begin_inset Formula 
+\begin{align*}
+S'\left[q';t_{1}^{\prime},t_{2}^{\prime}\right] & =S\left[q;t_{1},t_{2}\right]\\
+ & =\int_{t_{1}}^{t_{2}}L\left(q\left[q'\right]\left(t\right),\dot{q}\left[q'\right]\left(t\right),t\right)\mathrm{d}t\\
+ & =\int_{t_{1}^{\prime}}^{t_{2}^{\prime}}L'\left[q';t'\right]\mathrm{d}t'
+\end{align*}
+
+\end_inset
+
+上面
+\begin_inset Formula $S'$
+\end_inset
+
+与所对应的
+\begin_inset Formula $S$
+\end_inset
+
+的值相同，但与
+\begin_inset Formula $S$
+\end_inset
+
+的表达式不一定相同．如果
+\begin_inset Formula $S'$
+\end_inset
+
+与
+\begin_inset Formula $S$
+\end_inset
+
+的表达式相同，即
+\begin_inset Formula 
+\begin{align*}
+S'\left[q';t_{1}^{\prime},t_{2}^{\prime}\right] & =\int_{t_{1}^{\prime}}^{t_{2}^{\prime}}L\left(q'\left(t'\right),\dot{q}'\left(t\right),t'\right)\mathrm{d}t'\\
+ & =S\left[q';t_{1}^{\prime},t_{2}^{\prime}\right]
+\end{align*}
+
+\end_inset
+
+或者等价地说有
+\begin_inset Formula 
+\begin{equation}
+S\left[q';t_{1}^{\prime},t_{2}^{\prime}\right]=S\left[q;t_{1},t_{2}\right]\label{eq:finite-general-sym.condition}
+\end{equation}
+
+\end_inset
+
+那么称变换
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-general-trans"
+
+\end_inset
+
+是体系的一种
+\series bold
+对称性
+\series default
+．
+\end_layout
+
+\begin_layout Standard
+设变换
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-general-trans"
+
+\end_inset
+
+是对称性，接着我们来推导与之对应的守恒律．已知
+\begin_inset Formula 
+\begin{align*}
+0=\Delta S & =S\left[q';t_{1}^{\prime},t_{2}^{\prime}\right]-S\left[q;t_{1},t_{2}\right]\\
+ & =\int_{t_{1}^{\prime}}^{t_{2}^{\prime}}L\left(q'\left(t'\right),\dot{q}'\left(t'\right),t'\right)\mathrm{d}t'-\int_{t_{1}}^{t_{2}}L\left(q\left(t\right),\dot{q}\left(t\right),t\right)\mathrm{d}t
+\end{align*}
+
+\end_inset
+
+有两种等效的方法处理上面的等式，第一种方法是将第一项积分中的
+\begin_inset Formula $t'$
+\end_inset
+
+直接写成
+\begin_inset Formula $t$
+\end_inset
+
+，然后两式相减，这时由于积分限的不同会有边界项剩余；第二种方法是使用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-general-trans"
+
+\end_inset
+
+式将
+\begin_inset Formula $t'$
+\end_inset
+
+代换回
+\begin_inset Formula $t$
+\end_inset
+
+，这时积分限相同，但换元积分会产生一个
+\begin_inset Formula $f'$
+\end_inset
+
+因子．下面进行具体计算．
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+第一种方法
+\begin_inset space \quad{}
+\end_inset
+
+
+\series default
+考虑无穷小变换（
+\begin_inset Formula $\varepsilon\ll1$
+\end_inset
+
+，忽略
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+的高阶无穷小）
+\begin_inset Formula 
+\begin{align*}
+t' & =t+\delta t\\
+q'\left(t\right) & =q\left(t\right)+\bar{\delta}q
+\end{align*}
+
+\end_inset
+
+（
+\begin_inset Formula $\bar{\delta}$
+\end_inset
+
+表示同一
+\begin_inset Formula $t$
+\end_inset
+
+处两函数的差）有
+\begin_inset Formula 
+\begin{align}
+0=\Delta S & =\int_{t_{1}^{\prime}}^{t_{2}^{\prime}}L\left(q'\left(t\right),\dot{q}'\left(t\right),t\right)\mathrm{d}t-\int_{t_{1}}^{t_{2}}L\left(q\left(t\right),\dot{q}\left(t\right),t\right)\mathrm{d}t\nonumber \\
+ & =\int_{t_{1}}^{t_{2}}\left\{ L\left(q'\left(t\right),\dot{q}'\left(t\right),t\right)-L\left(q\left(t\right),\dot{q}\left(t\right),t\right)\right\} \mathrm{d}t+\left.L\right|_{t_{2}}\delta t_{2}-\left.L\right|_{t_{1}}\delta t_{1}\nonumber \\
+ & =\int_{t_{1}}^{t_{2}}\left\{ \frac{\partial L}{\partial q}\bar{\delta}q+\frac{\partial L}{\partial\dot{q}}\bar{\delta}\dot{q}+\frac{\mathrm{d}}{\mathrm{d}t}\left(L\delta t\right)\right\} \mathrm{d}t\label{eq:finite-general-noether.inter1}
+\end{align}
+
+\end_inset
+
+因为
+\begin_inset Formula $\bar{\delta}$
+\end_inset
+
+表示同一
+\begin_inset Formula $t$
+\end_inset
+
+处两函数的差，所以
+\begin_inset Formula ${\displaystyle \bar{\delta}\dot{q}=\frac{\mathrm{d}}{\mathrm{d}t}\bar{\delta}q}$
+\end_inset
+
+，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-general-noether.inter1"
+
+\end_inset
+
+式变成
+\begin_inset Formula 
+\begin{align*}
+0= & \int_{t_{1}}^{t_{2}}\left\{ \frac{\partial L}{\partial q}\bar{\delta}q+\frac{\partial L}{\partial\dot{q}}\frac{\mathrm{d}}{\mathrm{d}t}\bar{\delta}q+\frac{\mathrm{d}}{\mathrm{d}t}\left(L\delta t\right)\right\} \mathrm{d}t\\
+= & \int_{t_{1}}^{t_{2}}\left\{ \left(\frac{\partial L}{\partial q}-\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{q}}\right)\bar{\delta}q+\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\partial L}{\partial\dot{q}}\bar{\delta}q+L\delta t\right)\right\} \mathrm{d}t
+\end{align*}
+
+\end_inset
+
+对于真实的运动路径，满足欧拉－拉格朗日方程，上式积分中第一项等于零，又由于上式对任意
+\begin_inset Formula $t_{1},t_{2}$
+\end_inset
+
+都成立，所以有
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\partial L}{\partial\dot{q}}\bar{\delta}q+L\delta t\right)=0
+\]
+
+\end_inset
+
+即得到了一个守恒量
+\begin_inset Formula 
+\[
+\frac{\partial L}{\partial\dot{q}}\frac{\bar{\delta}q}{\varepsilon}+L\frac{\delta t}{\varepsilon}=\mathrm{const.\:in\:time}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+第二种方法
+\series default
+
+\begin_inset space \quad{}
+\end_inset
+
+考虑无穷小变换（
+\begin_inset Formula $\varepsilon\ll1$
+\end_inset
+
+，忽略
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+的高阶无穷小）
+\begin_inset Formula 
+\begin{align*}
+t' & =t+\delta t\\
+q'\left(t'\right) & =q\left(t\right)+\delta q
+\end{align*}
+
+\end_inset
+
+于是
+\begin_inset Formula 
+\begin{align}
+0=\Delta S & =\int_{t_{1}}^{t_{2}}L\left(q'\left(t'\right),\dot{q}'\left(t'\right),t'\right)\left(1+\frac{\mathrm{d}}{\mathrm{d}t}\delta t\right)\mathrm{d}t-\int_{t_{1}}^{t_{2}}L\left(q\left(t\right),\dot{q}\left(t\right),t\right)\mathrm{d}t\nonumber \\
+ & =\int_{t_{1}}^{t_{2}}\left\{ L\left(q'\left(t'\right),\dot{q}'\left(t'\right),t'\right)-L\left(q\left(t\right),\dot{q}\left(t\right),t\right)+L\frac{\mathrm{d}}{\mathrm{d}t}\delta t\right\} \mathrm{d}t\nonumber \\
+ & =\int_{t_{1}}^{t_{2}}\left\{ \frac{\partial L}{\partial q}\delta q+\frac{\partial L}{\partial\dot{q}}\delta\dot{q}+\frac{\partial L}{\partial t}\delta t+L\frac{\mathrm{d}}{\mathrm{d}t}\delta t\right\} \mathrm{d}t\label{eq:finite-general-noether.inter2}
+\end{align}
+
+\end_inset
+
+这里因为
+\begin_inset Formula $\delta$
+\end_inset
+
+表示两个时刻两函数的差，对任意函数
+\begin_inset Formula $h\left(t\right)$
+\end_inset
+
+有
+\begin_inset Formula 
+\begin{align*}
+\delta h\left(t\right) & =h'\left(t'\right)-h\left(t\right)=h'\left(t'\right)-h'\left(t\right)+h'\left(t\right)-h\left(t\right)\\
+ & =\dot{h}\left(t\right)\delta t+\bar{\delta}h\quad(+O\left(\varepsilon^{2}\right))
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-general-noether.inter2"
+
+\end_inset
+
+式变成
+\begin_inset Formula 
+\begin{align*}
+0 & =\int_{t_{1}}^{t_{2}}\left\{ \frac{\partial L}{\partial q}\left(\bar{\delta}q+\underline{\dot{q}\delta t}\right)+\frac{\partial L}{\partial\dot{q}}\left(\bar{\delta}\dot{q}+\underline{\ddot{q}\delta t}\right)+\underline{\frac{\partial L}{\partial t}\delta t}+L\frac{\mathrm{d}}{\mathrm{d}t}\delta t\right\} \mathrm{d}t\\
+ & =\int_{t_{1}}^{t_{2}}\left\{ \left(\frac{\partial L}{\partial q}\bar{\delta}q+\frac{\partial L}{\partial\dot{q}}\bar{\delta}\dot{q}\right)+\underline{\left(\frac{\partial L}{\partial q}\dot{q}+\frac{\partial L}{\partial\dot{q}}\ddot{q}+\frac{\partial L}{\partial t}\right)\delta t}+L\frac{\mathrm{d}}{\mathrm{d}t}\delta t\right\} \mathrm{d}t\\
+ & =\int_{t_{1}}^{t_{2}}\left\{ \frac{\partial L}{\partial q}\bar{\delta}q+\frac{\partial L}{\partial\dot{q}}\bar{\delta}\dot{q}+\frac{\mathrm{d}}{\mathrm{d}t}\left(L\delta t\right)\right\} \mathrm{d}t
+\end{align*}
+
+\end_inset
+
+与
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-general-noether.inter1"
+
+\end_inset
+
+式完全相同，所以接下来重复第一种方法剩下的步骤，可得
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\partial L}{\partial\dot{q}}\frac{\bar{\delta}q}{\varepsilon}+L\frac{\delta t}{\varepsilon}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+短程线与Killing矢量场
+\end_layout
+
+\begin_layout Standard
+考虑在相对论情形下，粒子沿短程线的运动，作用量可写为
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+这里使用
+\begin_inset Formula $+---$
+\end_inset
+
+度规，并且这里的
+\begin_inset Formula $L$
+\end_inset
+
+与相对论力学中的拉氏量有所区别．
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+S\left[x^{\mu};\lambda_{1},\lambda_{2}\right]=\tau & =\int_{\lambda1}^{\lambda_{2}}\sqrt{g_{\mu\nu}\left(x^{\alpha}\right)\frac{\mathrm{d}x^{\mu}}{\mathrm{d}\lambda}\frac{\mathrm{d}x^{\nu}}{\mathrm{d}\lambda}}\mathrm{d}\lambda\\
+ & =\int_{\lambda1}^{\lambda_{2}}L\left(x^{\mu},\frac{\mathrm{d}x^{\mu}}{\mathrm{d}\lambda}\right)\mathrm{d}\lambda
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\lambda$
+\end_inset
+
+为参数，注意上式中度规
+\begin_inset Formula $g_{\mu\nu}$
+\end_inset
+
+是
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+的函数．现考虑变换
+\begin_inset Formula 
+\begin{equation}
+x^{\mu}\left(\lambda\right)\rightarrow x^{\prime\mu}\left(\lambda\right)=f_{\varepsilon}^{\mu}\left(x^{\nu}\left(\lambda\right)\right)\label{eq:finite-killing-trans}
+\end{equation}
+
+\end_inset
+
+由
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-general-sym.condition"
+
+\end_inset
+
+式可知，变换
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-killing-trans"
+
+\end_inset
+
+是一种对称性的条件为
+\begin_inset Formula 
+\[
+S\left[x^{\prime\mu};\lambda_{1},\lambda_{2}\right]=S\left[x^{\mu};\lambda_{1},\lambda_{2}\right]
+\]
+
+\end_inset
+
+即
+\begin_inset Formula 
+\begin{equation}
+\int_{\lambda1}^{\lambda_{2}}\sqrt{g_{\mu\nu}\left(x^{\prime\alpha}\right)\frac{\mathrm{d}x^{\prime\mu}}{\mathrm{d}\lambda}\frac{\mathrm{d}x^{\prime\nu}}{\mathrm{d}\lambda}}\mathrm{d}\lambda=\int_{\lambda1}^{\lambda_{2}}\sqrt{g_{\mu\nu}\left(x^{\alpha}\right)\frac{\mathrm{d}x^{\mu}}{\mathrm{d}\lambda}\frac{\mathrm{d}x^{\nu}}{\mathrm{d}\lambda}}\mathrm{d}\lambda\label{eq:finite-killing-sym.condition}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+显然，若
+\begin_inset Formula 
+\[
+\frac{\partial x^{\prime\mu}}{\partial x^{\rho}}\frac{\partial x^{\prime\nu}}{\partial x^{\sigma}}g_{\mu\nu}\left(f_{\varepsilon}^{\alpha}\left(x^{\beta}\right)\right)=g_{\rho\sigma}\left(x^{\beta}\right)
+\]
+
+\end_inset
+
+则
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-killing-sym.condition"
+
+\end_inset
+
+式成立．上式也可以写成
+\begin_inset Formula 
+\[
+f_{\varepsilon}^{*}\left(g\left(f_{\varepsilon}\left(x\right)\right)\right)=g\left(x\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $f_{\varepsilon}^{*}$
+\end_inset
+
+为拉回（pullback）映射，按照李导数的定义还可以写成
+\begin_inset Formula 
+\begin{equation}
+\mathfrak{L}_{X}g=\lim_{\varepsilon\rightarrow0}\frac{f_{\varepsilon}^{*}\left(g\left(f_{\varepsilon}\left(x\right)\right)\right)-g\left(x\right)}{\varepsilon}=0\label{eq:finite-killing-Lie.g}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula ${\displaystyle X^{\mu}=\frac{\mathrm{d}f^{\mu}}{\mathrm{d}\varepsilon}=\frac{\bar{\delta}x^{\mu}}{\varepsilon}}$
+\end_inset
+
+为
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-killing-trans"
+
+\end_inset
+
+式的无穷小形式所对应的矢量场．换句话说，满足
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-killing-Lie.g"
+
+\end_inset
+
+式的无穷小变换是体系的一种对称性，由诺特定理，这种对称性对应体系的一个守恒方程
+\begin_inset Formula 
+\begin{align*}
+0=\frac{\mathrm{d}}{\mathrm{d}\lambda}\left(\frac{\partial L}{{\displaystyle \partial\left(\frac{\mathrm{d}x^{\rho}}{\mathrm{d}\lambda}\right)}}\frac{\bar{\delta}x^{\rho}}{\varepsilon}\right) & =\frac{\mathrm{d}}{\mathrm{d}\lambda}\left(\frac{{\displaystyle g_{\rho\mu}\frac{\mathrm{d}x^{\mu}}{\mathrm{d}\lambda}}}{{\displaystyle \sqrt{g_{\mu\nu}\left(x^{\alpha}\right)\frac{\mathrm{d}x^{\mu}}{\mathrm{d}\lambda}\frac{\mathrm{d}x^{\nu}}{\mathrm{d}\lambda}}}}X^{\rho}\right)\\
+ & =\frac{\mathrm{d}}{\mathrm{d}\lambda}\frac{{\displaystyle g_{\rho\mu}X^{\rho}\frac{\mathrm{d}x^{\mu}}{\mathrm{d}\lambda}}}{{\displaystyle \frac{\mathrm{d}\tau}{\mathrm{d}\lambda}}}
+\end{align*}
+
+\end_inset
+
+即有
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}\tau}\left({\displaystyle X_{\mu}\frac{\mathrm{d}x^{\mu}}{\mathrm{d}\tau}}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+满足
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-killing-Lie.g"
+
+\end_inset
+
+式的矢量场
+\begin_inset Formula $X^{\mu}$
+\end_inset
+
+称为
+\series bold
+Killing矢量场
+\series default
+．
+\end_layout
+
+\begin_layout Section
+场论
+\end_layout
+
+\begin_layout Subsection
+一般讨论
+\end_layout
+
+\begin_layout Standard
+场论中的诺特定理的推导与有限自由度体系是相似的，上述讨论可以很容易地类比到场论的情形．
+\end_layout
+
+\begin_layout Standard
+考虑
+\begin_inset Formula $n$
+\end_inset
+
+维空间中的场
+\begin_inset Formula $\varphi\left(x^{\mu}\right)$
+\end_inset
+
+，其中
+\begin_inset Formula $\varphi$
+\end_inset
+
+可能包含有多个场以及它们的各个分量，
+\begin_inset Formula $\mu=0,\ldots,n-1\text{或者}1,\ldots n$
+\end_inset
+
+．
+\begin_inset Formula $\varphi$
+\end_inset
+
+的运动方程可以从作用量
+\begin_inset Formula 
+\[
+S\left[\varphi;\Omega\right]=\int_{\Omega}\mathcal{L}\left(\varphi,\partial_{\mu}\varphi,x^{\mu}\right)\mathrm{d}^{n}x
+\]
+
+\end_inset
+
+的具体形式得出．由最小作用量原理，对于给定的边界条件
+\begin_inset Formula $\left.\varphi\right|_{\partial\Omega}=h\left(x\right)$
+\end_inset
+
+，真实的场
+\begin_inset Formula $\varphi_{\mathrm{re}}$
+\end_inset
+
+使得作用量取驻值，即满足
+\begin_inset Formula 
+\[
+\frac{\delta S}{\delta\varphi}=\frac{\partial\mathcal{L}}{\partial\varphi}-\partial_{\mu}\left(\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+现在考虑体系的一个变换，在此变换下：
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}x^{\mu} & \rightarrow x^{\prime\mu}=f_{\varepsilon}^{\mu}\left(x^{\nu}\right)\\
+\varphi\left(x^{\mu}\right) & \rightarrow\varphi'\left(x^{\prime\mu}\right)\quad(\varphi'=F_{\varepsilon}\left[\varphi\right])
+\end{aligned}
+\label{eq:field-general-trans}
+\end{equation}
+
+\end_inset
+
+（
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+是变换的参数，且当
+\begin_inset Formula $\varepsilon=0$
+\end_inset
+
+时为恒等变换）．变换
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field-general-trans"
+
+\end_inset
+
+是一种对称性的条件与上一节的
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:finite-general-sym.condition"
+
+\end_inset
+
+式类似，为
+\begin_inset Formula 
+\[
+S\left[\varphi';\Omega'\right]=S\left[\varphi;\Omega\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field-general-trans"
+
+\end_inset
+
+是一种对称性，那么有
+\begin_inset Formula 
+\[
+\Delta S=\int_{\Omega'}\mathcal{L}\left(\varphi',\partial_{\mu}^{\prime}\varphi',x^{\prime\mu}\right)\mathrm{d}^{n}x'-\int_{\Omega}\mathcal{L}\left(\varphi,\partial_{\mu}\varphi,x^{\mu}\right)\mathrm{d}^{n}x=0
+\]
+
+\end_inset
+
+为了导出与之相应守恒律，依然有两种等效的处理方法：一种是将上式左边的
+\begin_inset Formula $x'$
+\end_inset
+
+直接换为
+\begin_inset Formula $x$
+\end_inset
+
+，然后相减，由于积分区域
+\begin_inset Formula $\Omega'$
+\end_inset
+
+与
+\begin_inset Formula $\Omega$
+\end_inset
+
+不一致，会导致多出一个边界项；另一种是将
+\begin_inset Formula $x^{\prime\mu}=f_{\varepsilon}^{\mu}\left(x^{\nu}\right)$
+\end_inset
+
+代回上式左边，然后再相减，这时积分区域一致，但积分微元在从
+\begin_inset Formula $\mathrm{d}^{n}x'$
+\end_inset
+
+变换为
+\begin_inset Formula $\mathrm{d}^{n}x$
+\end_inset
+
+时出现一个雅可比行列式，也会多出一项．下面分别按这两种方法进行推导．
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+第一种方法
+\series default
+
+\begin_inset space \quad{}
+\end_inset
+
+考虑无穷小变换（
+\begin_inset Formula $\varepsilon\ll1$
+\end_inset
+
+，忽略
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+的高阶无穷小）
+\begin_inset Formula 
+\begin{align*}
+x^{\prime\mu} & =x^{\mu}+\delta x^{\mu}\\
+\varphi'\left(x^{\mu}\right) & =\varphi\left(x^{\mu}\right)+\bar{\delta}\varphi
+\end{align*}
+
+\end_inset
+
+（
+\begin_inset Formula $\bar{\delta}$
+\end_inset
+
+表示同一
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+处两函数的差），有
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+这里
+\begin_inset Formula $\mathrm{d}s_{\mu}=\left(-1\right)^{\mu-1}\mathrm{d}x^{1}\wedge\cdots\wedge\cancel{\mathrm{d}x^{\mu}}\wedge\cdots\wedge\mathrm{d}x^{n}$
+\end_inset
+
+是边界的微分形式．
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+0=\Delta S & =\int_{\Omega'}\mathcal{L}\left(\varphi',\partial_{\mu}\varphi',x^{\mu}\right)\mathrm{d}^{n}x-\int_{\Omega}\mathcal{L}\left(\varphi,\partial_{\mu}\varphi,x^{\mu}\right)\mathrm{d}^{n}x\nonumber \\
+ & =\int_{\Omega}\left\{ \mathcal{L}\left(\varphi',\partial_{\mu}\varphi',x^{\mu}\right)-\mathcal{L}\left(\varphi,\partial_{\mu}\varphi,x^{\mu}\right)\right\} \mathrm{d}^{n}x+\int_{\partial\Omega}\mathcal{L}\delta x^{\mu}\mathrm{d}s_{\mu}\nonumber \\
+ & =\int_{\Omega}\left\{ \frac{\partial\mathcal{L}}{\partial\varphi}\bar{\delta}\varphi+\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\bar{\delta}\left(\partial_{\mu}\varphi\right)\right\} \mathrm{d}^{n}x+\int_{\Omega}\partial_{\mu}\left(\mathcal{L}\delta x^{\mu}\right)\mathrm{d}^{n}x\quad\text{（斯托克斯定理）}\label{eq:field-general-noether.inter1}
+\end{align}
+
+\end_inset
+
+因为
+\begin_inset Formula $\bar{\delta}$
+\end_inset
+
+表示同一
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+处两函数的差，所以
+\begin_inset Formula $\bar{\delta}$
+\end_inset
+
+与
+\begin_inset Formula $\partial_{\mu}$
+\end_inset
+
+可交换次序．再考虑到真实场
+\begin_inset Formula $\varphi$
+\end_inset
+
+满足欧拉－拉格朗日方程，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field-general-noether.inter1"
+
+\end_inset
+
+式可化成
+\begin_inset Formula 
+\begin{align}
+0 & =\int_{\Omega}\left\{ \left(\partial_{\mu}\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\right)\bar{\delta}\varphi+\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\partial_{\mu}\left(\bar{\delta}\varphi\right)+\partial_{\mu}\left(\mathcal{L}\delta x^{\mu}\right)\right\} \mathrm{d}^{n}x\nonumber \\
+ & =\int_{\Omega}\partial_{\mu}\left(\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\bar{\delta}\varphi+\mathcal{L}\delta x^{\mu}\right)\mathrm{d}^{n}x\label{eq:field-general-noether.inter2}
+\end{align}
+
+\end_inset
+
+上式对于任意区域
+\begin_inset Formula $\Omega$
+\end_inset
+
+都成立．因此有守恒流方程
+\begin_inset Formula 
+\[
+\partial_{\mu}\left(\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\bar{\delta}\varphi+\mathcal{L}\delta x^{\mu}\right)=0
+\]
+
+\end_inset
+
+可以记
+\begin_inset Formula 
+\begin{equation}
+j^{\mu}\equiv\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\frac{\bar{\delta}\varphi}{\varepsilon}+\mathcal{L}\frac{\delta x^{\mu}}{\varepsilon}\label{eq:field-general-noether.current}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{\mu}j^{\mu}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+第二种方法
+\series default
+
+\begin_inset space \quad{}
+\end_inset
+
+考虑无穷小变换（
+\begin_inset Formula $\varepsilon\ll1$
+\end_inset
+
+，忽略
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+的高阶无穷小）：
+\begin_inset Formula 
+\begin{align*}
+x^{\prime\mu} & =x^{\mu}+\delta x^{\mu}\\
+\varphi'\left(x^{\prime\mu}\right) & =\varphi\left(x^{\mu}\right)+\delta\varphi
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathrm{d}^{n}x' & =\left|\frac{\partial x^{\prime\mu}}{\partial x^{\nu}}\right|\mathrm{d}^{n}x=\left|1+\frac{\partial\delta x^{\mu}}{\partial x^{\nu}}\right|\mathrm{d}^{n}x\\
+ & =\left\{ 1+\mathrm{tr}\left(\frac{\partial\delta x^{\mu}}{\partial x^{\nu}}\right)\right\} \mathrm{d}^{n}x\\
+ & =\left\{ 1+\partial_{\mu}\left(\delta x^{\mu}\right)\right\} \mathrm{d}^{n}x
+\end{align*}
+
+\end_inset
+
+于是
+\begin_inset Formula 
+\begin{align*}
+0=\Delta S & =\int_{\Omega}\mathcal{L}\left(\varphi',\partial_{\mu}^{\prime}\varphi',x^{\prime\mu}\right)\left\{ 1+\partial_{\mu}\left(\delta x^{\mu}\right)\right\} \mathrm{d}^{n}x-\int_{\Omega}\mathcal{L}\left(\varphi,\partial_{\mu}\varphi,x^{\mu}\right)\mathrm{d}^{n}x\\
+ & =\int_{\Omega}\left\{ \mathcal{L}\left(\varphi',\partial_{\mu}^{\prime}\varphi',x^{\prime\mu}\right)-\mathcal{L}\left(\varphi,\partial_{\mu}\varphi,x^{\mu}\right)\right\} \mathrm{d}^{n}x+\int_{\Omega}\mathcal{L}\partial_{\mu}\left(\delta x^{\mu}\right)\mathrm{d}^{n}x\\
+ & =\int_{\Omega}\left\{ \frac{\partial\mathcal{L}}{\partial\varphi}\delta\varphi+\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\delta\left(\partial_{\mu}\varphi\right)+\frac{\partial\mathcal{L}}{\partial x^{\mu}}\delta x^{\mu}+\mathcal{L}\partial_{\mu}\left(\delta x^{\mu}\right)\right\} \mathrm{d}^{n}x
+\end{align*}
+
+\end_inset
+
+（这里用
+\begin_inset Formula ${\displaystyle \frac{\partial\mathcal{L}}{\partial x^{\mu}}}$
+\end_inset
+
+表示函数
+\begin_inset Formula $\mathcal{L}\left(\bullet,\bullet,x^{\mu}\right)$
+\end_inset
+
+对
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+求导，
+\begin_inset Formula $\partial_{\mu}\mathcal{L}$
+\end_inset
+
+ 表示
+\begin_inset Formula $\mathcal{L}\left(\varphi,\partial_{\mu}\varphi,x^{\mu}\right)$
+\end_inset
+
+作为复合函数对
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+求导）．由
+\begin_inset Formula 
+\begin{align*}
+\delta h & =h'\left(x^{\prime\mu}\right)-h\left(x\right)=h'\left(x^{\prime\mu}\right)-h'\left(x^{\mu}\right)+h'\left(x^{\mu}\right)-h\left(x^{\mu}\right)\\
+ & =\delta x^{\mu}\partial_{\mu}h\left(x^{\nu}\right)+\bar{\delta}h\quad(+O\left(\varepsilon^{2}\right))
+\end{align*}
+
+\end_inset
+
+可得
+\begin_inset Formula 
+\begin{align*}
+0 & =\int_{\Omega}\Biggl\{\frac{\partial\mathcal{L}}{\partial\varphi}\left(\bar{\delta}\varphi+\underline{\delta x^{\mu}\partial_{\mu}\varphi}\right)+\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\left(\bar{\delta}\left(\partial_{\mu}\varphi\right)+\underline{\delta x^{\nu}\partial_{\nu}\left(\partial_{\mu}\varphi\right)}\right)\\
+ & \qquad+\underline{\frac{\partial\mathcal{L}}{\partial x^{\mu}}\delta x^{\mu}}+\mathcal{L}\partial_{\mu}\left(\delta x^{\mu}\right)\Biggr\}\mathrm{d}^{n}x\\
+ & =\int_{\Omega}\Biggl\{\frac{\partial\mathcal{L}}{\partial\varphi}\bar{\delta}\varphi+\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\bar{\delta}\left(\partial_{\mu}\varphi\right)+\Biggl(\underline{\frac{\partial\mathcal{L}}{\partial\varphi}\partial_{\mu}\varphi}+\underline{\frac{\partial\mathcal{L}}{\partial\left(\partial_{\nu}\varphi\right)}\partial_{\mu}\left(\partial_{\nu}\varphi\right)}\\
+ & \qquad+\underline{\frac{\partial\mathcal{L}}{\partial x^{\mu}}}\Biggr)\delta x^{\mu}+\mathcal{L}\partial_{\mu}\left(\delta x^{\mu}\right)\Biggr\}\mathrm{d}^{n}x\\
+ & =\int_{\Omega}\left\{ \frac{\partial\mathcal{L}}{\partial\varphi}\bar{\delta}\varphi+\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\bar{\delta}\left(\partial_{\mu}\varphi\right)+\underline{\partial_{\mu}\mathcal{L}\delta x^{\mu}}+\mathcal{L}\partial_{\mu}\left(\delta x^{\mu}\right)\right\} \mathrm{d}^{n}x\\
+ & =\int_{\Omega}\left\{ \frac{\partial\mathcal{L}}{\partial\varphi}\bar{\delta}\varphi+\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\bar{\delta}\left(\partial_{\mu}\varphi\right)+\partial_{\mu}\left(\mathcal{L}\delta x^{\mu}\right)\right\} \mathrm{d}^{n}x
+\end{align*}
+
+\end_inset
+
+与
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field-general-noether.inter1"
+
+\end_inset
+
+式相同．因此与之前一样可以得到守恒流方程
+\begin_inset Formula 
+\[
+\partial_{\mu}\left(\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\frac{\bar{\delta}\varphi}{\varepsilon}+\mathcal{L}\frac{\delta x^{\mu}}{\varepsilon}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+拓展
+\end_layout
+
+\begin_layout Subsubsection
+推广
+\end_layout
+
+\begin_layout Standard
+从上述推导过程可以看出，要想得到守恒流方程，只需
+\begin_inset Formula $\Delta S=0$
+\end_inset
+
+在
+\begin_inset Formula $\varphi=\varphi_{\mathrm{re}}$
+\end_inset
+
+处成立即可，将这样的变换称为在壳（on-shell）对称性；而对于任意的
+\begin_inset Formula $\varphi$
+\end_inset
+
+都有
+\begin_inset Formula $\Delta S=0$
+\end_inset
+
+的变换称为离壳（off-shell）对称性．除此以外，对称性的概念还可以进一步推广，变换只需满足
+\begin_inset Formula 
+\begin{align*}
+\Delta S & =\int_{\partial\Omega}\varepsilon f^{\mu}\left(\varphi,\partial\varphi,\partial\partial\varphi,\ldots\right)\mathrm{d}s_{\mu}\\
+ & =\int_{\Omega}\varepsilon\partial_{\mu}f^{\mu}\left(\varphi,\partial\varphi,\partial\partial\varphi,\ldots\right)\mathrm{d}^{n}x
+\end{align*}
+
+\end_inset
+
+即可称为一种对称性．此时只需修改
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field-general-noether.inter2"
+
+\end_inset
+
+式：
+\begin_inset Formula 
+\[
+\int_{\Omega}\varepsilon\partial_{\mu}f^{\mu}\left(\varphi,\partial\varphi,\partial\partial\varphi,\ldots\right)\mathrm{d}^{n}x=\int_{\Omega}\partial_{\mu}\left(\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\bar{\delta}\varphi+\mathcal{L}\delta x^{\mu}\right)\mathrm{d}^{n}x
+\]
+
+\end_inset
+
+得到守恒流方程
+\begin_inset Formula 
+\[
+\partial_{\mu}\left(\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\frac{\bar{\delta}\varphi}{\varepsilon}+\mathcal{L}\frac{\delta x^{\mu}}{\varepsilon}-f^{\mu}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+李导数记法
+\end_layout
+
+\begin_layout Standard
+通常，对于所研究的场
+\begin_inset Formula $\varphi$
+\end_inset
+
+我们都认为：在
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field-general-trans"
+
+\end_inset
+
+式的坐标变换
+\begin_inset Formula 
+\[
+x^{\mu}\rightarrow x^{\prime\mu}=f_{\varepsilon}^{\mu}\left(x^{\nu}\right)
+\]
+
+\end_inset
+
+下，
+\begin_inset Formula $\varphi$
+\end_inset
+
+同时会有一个伴随的变换，例如矢量场在转动变换下除了场在空间中移动外每一点处场矢量的箭头指向也会跟随着转动．我们将这种伴随的变换记为
+\begin_inset Formula 
+\begin{equation}
+\varphi\left(x^{\mu}\right)\rightarrow\varphi'\left(x^{\prime\mu}\right)=f_{\varepsilon*}\left(\varphi\left(f_{\varepsilon}^{\nu-1}\left(x^{\prime\mu}\right)\right)\right)\label{eq:field-extend-coord.trans}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $f_{\varepsilon*}$
+\end_inset
+
+称为推前（pushforward）映射．考虑
+\begin_inset Formula $\varepsilon\ll1$
+\end_inset
+
+的无穷小变换，由坐标变换的伴随变换导致的场的变化为
+\begin_inset Formula 
+\[
+\bar{\delta}_{\mathrm{c}}\varphi=f_{\varepsilon*}\left(\varphi\left(f_{\varepsilon}^{\nu-1}\left(x^{\mu}\right)\right)\right)-\varphi\left(x^{\mu}\right)=-\varepsilon\left(\mathfrak{L}_{X}\varphi\right)\left(x^{\mu}\right)
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\mathfrak{L}_{X}\varphi$
+\end_inset
+
+为场的李导数，
+\begin_inset Formula ${\displaystyle X^{\mu}=\frac{1}{\varepsilon}\delta_{\mathrm{c}}x^{\mu}}$
+\end_inset
+
+为无穷小坐标变换对应的矢量场．如果
+\bar under
+除
+\bar default
+坐标变换引起的场的伴随变换
+\bar under
+以外
+\bar default
+，还有内禀变换
+\begin_inset Formula 
+\begin{equation}
+\varphi\left(x^{\mu}\right)\rightarrow\varphi'\left(x^{\mu}\right)=F_{\varepsilon}\left(\varphi\left(x^{\mu}\right)\right)\label{eq:field-extend-int.trans}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\delta_{\mathrm{i}}x^{\mu} & =0\\
+\bar{\delta}_{\mathrm{i}}\varphi & =\delta_{\mathrm{i}}\varphi=\varphi'\left(x^{\mu}\right)-\varphi\left(x^{\mu}\right)\\
+ & =\varepsilon\left.\frac{\mathrm{d}}{\mathrm{d}\varepsilon}\right|_{\varepsilon=0}F_{\varepsilon}\left(\varphi\right)\equiv\varepsilon\Phi
+\end{align*}
+
+\end_inset
+
+那么对
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field-extend-coord.trans"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field-extend-int.trans"
+
+\end_inset
+
+两变换的复合，有
+\begin_inset Formula 
+\begin{align*}
+\bar{\delta}\varphi & =\bar{\delta}_{\mathrm{c}}\varphi+\bar{\delta}_{\mathrm{i}}\varphi=-\varepsilon\mathfrak{L}_{X}\varphi+\varepsilon\Phi
+\end{align*}
+
+\end_inset
+
+若变换是对称性，这时诺特流
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:field-general-noether.current"
+
+\end_inset
+
+可写成
+\begin_inset Formula 
+\begin{align*}
+j^{\mu} & =\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\frac{\bar{\delta}\varphi}{\varepsilon}+\mathcal{L}\frac{\delta x^{\mu}}{\varepsilon}\\
+ & =\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\left(-\mathfrak{L}_{X}\varphi+\Phi\right)+\mathcal{L}X^{\mu}\\
+ & =\left(-\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\mathfrak{L}_{X}\varphi+\mathcal{L}X^{\mu}\right)+\frac{\partial\mathcal{L}}{\partial\left(\partial_{\mu}\varphi\right)}\Phi
+\end{align*}
+
+\end_inset
+
+上式中的第一项对应坐标变换对称性，第二项对应场的内禀对称性．
+\end_layout
+
+\end_body
+\end_document
