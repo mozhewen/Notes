@@ -1,0 +1,412 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+% 公式（amsmath）
+\allowdisplaybreaks[3]
+
+% 段间距置0
+\setlength{\parskip}{0pt}
+
+% 避免脚注换页
+\interfootnotelinepenalty=10000
+
+% 定理证明
+\usepackage{amsthm}
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package default
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_title "Warped Product相关公式的推导"
+\pdf_author "莫哲文"
+\pdf_subject "Notes"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3.17cm
+\topmargin 2.54cm
+\rightmargin 3.17cm
+\bottommargin 2.54cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Warped Product相关公式的推导
+\end_layout
+
+\begin_layout Standard
+给定两个装备了度规的微分流形
+\begin_inset Formula $\left(M_{1},g\right)$
+\end_inset
+
+,
+\begin_inset Formula $\left(M_{2},h\right)$
+\end_inset
+
+，流形的warped product定义为：
+\begin_inset Formula $M=M_{1}\otimes M_{2}$
+\end_inset
+
+，且
+\begin_inset Formula $M$
+\end_inset
+
+上的度规可以写为
+\begin_inset Formula 
+\begin{align*}
+ds^{2} & =g_{\mu\nu}dx^{\mu}dx^{\nu}+\mathrm{e}^{\Phi\left(x\right)}h_{ab}dy^{a}dy^{b}\\
+ & =\hat{g}_{ij}d\hat{x}^{i}d\hat{x}^{j}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+联络
+\end_layout
+
+\begin_layout Standard
+由联络的公式
+\begin_inset Formula 
+\[
+\Gamma_{\mu\nu}^{\rho}=\frac{1}{2}g^{\rho\lambda}\left(\partial_{\mu}g_{\nu\lambda}+\partial_{\nu}g{}_{\lambda\mu}-\partial_{\lambda}g_{\mu\nu}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\hat{\Gamma}_{ab}^{c} & =\frac{1}{2}\hat{g}^{cd}\left(\partial_{a}\hat{g}_{bd}+\partial_{b}\hat{g}{}_{da}-\partial_{d}\hat{g}_{ab}\right)\nonumber \\
+ & =\frac{1}{2}\mathrm{e}^{-\Phi}h^{cd}\mathrm{e}^{\Phi}\left(\partial_{a}h_{bd}+\partial_{b}h_{da}-\partial_{d}h_{ab}\right)\nonumber \\
+ & =\frac{1}{2}h^{cd}\left(\partial_{a}h_{bd}+\partial_{b}h_{da}-\partial_{d}h_{ab}\right)\nonumber \\
+ & =\Gamma_{ab}^{c}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{\Gamma}_{ab}^{\mu} & =\frac{1}{2}\hat{g}^{\mu\lambda}\left(\partial_{a}\hat{g}_{b\lambda}+\partial_{b}\hat{g}{}_{\lambda a}-\partial_{\lambda}\hat{g}_{ab}\right)\nonumber \\
+ & =-\frac{1}{2}g^{\mu\lambda}\partial_{\lambda}\left(\mathrm{e}^{\Phi}h_{ab}\right)\nonumber \\
+ & =-\frac{1}{2}\left(\nabla^{\mu}\Phi\right)\mathrm{e}^{\Phi}h_{ab}\nonumber \\
+ & =-\frac{1}{2}\left(\nabla^{\mu}\Phi\right)\hat{g}_{ab}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{\Gamma}_{a\mu}^{b} & =\frac{1}{2}\hat{g}^{bc}\left(\partial_{a}\hat{g}_{\mu c}+\partial_{\mu}\hat{g}{}_{ca}-\partial_{c}\hat{g}_{a\mu}\right)\nonumber \\
+ & =\frac{1}{2}\mathrm{e}^{-\Phi}h^{bc}\partial_{\mu}\left(\mathrm{e}^{\Phi}h_{ca}\right)\nonumber \\
+ & =\frac{1}{2}\mathrm{e}^{-\Phi}h^{bc}h_{ca}\mathrm{e}^{\Phi}\nabla_{\mu}\Phi\nonumber \\
+ & =\frac{1}{2}\delta_{a}^{b}\nabla_{\mu}\Phi
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{\Gamma}_{\mu\nu}^{\rho} & =\Gamma_{\mu\nu}^{\rho}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{\Gamma}_{\mu\nu}^{a} & =\frac{1}{2}\hat{g}^{ab}\left(\partial_{\mu}\hat{g}_{\nu b}+\partial_{\nu}\hat{g}{}_{b\mu}-\partial_{b}\hat{g}_{\mu\nu}\right)=0
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{\Gamma}_{\mu a}^{\rho} & =\frac{1}{2}\hat{g}^{\rho\lambda}\left(\partial_{\mu}\hat{g}_{a\lambda}+\partial_{a}\hat{g}{}_{\lambda\mu}-\partial_{\lambda}\hat{g}_{\mu a}\right)=0
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+黎曼曲率张量
+\end_layout
+
+\begin_layout Standard
+由公式
+\begin_inset Formula 
+\[
+R^{\rho}{}_{\sigma\mu\nu}=\partial_{\mu}\Gamma_{\nu\sigma}^{\rho}-\partial_{\nu}\Gamma_{\mu\sigma}^{\rho}+\Gamma_{\mu\lambda}^{\rho}\Gamma_{\nu\sigma}^{\lambda}-\Gamma_{\nu\lambda}^{\rho}\Gamma_{\mu\sigma}^{\lambda}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\hat{R}^{d}{}_{cab} & =R^{d}{}_{cab}+\hat{\Gamma}_{a\lambda}^{d}\hat{\Gamma}_{bc}^{\lambda}-\hat{\Gamma}_{b\lambda}^{d}\hat{\Gamma}_{ac}^{\lambda}\nonumber \\
+ & =R^{d}{}_{cab}-\frac{1}{4}\delta_{a}^{d}\nabla_{\lambda}\Phi\nabla^{\lambda}\Phi\hat{g}_{bc}+\frac{1}{4}\delta_{b}^{d}\nabla_{\lambda}\Phi\nabla^{\lambda}\Phi\hat{g}_{ac}\nonumber \\
+ & =R^{d}{}_{cab}-\frac{1}{4}\left(\hat{g}_{cb}\delta_{a}^{d}-\hat{g}_{ca}\delta_{b}^{d}\right)\nabla_{\lambda}\Phi\nabla^{\lambda}\Phi
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{R}^{\mu}{}_{a\nu b} & =\partial_{\nu}\hat{\Gamma}_{ba}^{\mu}-\partial_{b}\hat{\Gamma}_{\nu a}^{\mu}+\hat{\Gamma}_{\nu\lambda}^{\mu}\hat{\Gamma}_{ba}^{\lambda}-\hat{\Gamma}_{bc}^{\mu}\hat{\Gamma}_{\nu a}^{c}\nonumber \\
+ & =\left(\partial_{\nu}\hat{\Gamma}_{ba}^{\mu}+\hat{\Gamma}_{\nu\lambda}^{\mu}\hat{\Gamma}_{ba}^{\lambda}\right)+\frac{1}{4}\left(\nabla^{\mu}\Phi\right)\hat{g}_{bc}\delta_{a}^{c}\nabla_{\nu}\Phi\nonumber \\
+ & =-\frac{1}{2}\nabla_{\nu}\left(\hat{g}_{ab}\nabla^{\mu}\Phi\right)+\frac{1}{4}\nabla^{\mu}\Phi\nabla_{\nu}\Phi\hat{g}_{ba}\nonumber \\
+ & =-\frac{1}{2}\left(\nabla_{\nu}\nabla^{\mu}\Phi\right)\hat{g}_{ab}-\frac{1}{2}\nabla^{\mu}\Phi\nabla_{\nu}\Phi\hat{g}_{ab}+\frac{1}{4}\nabla^{\mu}\Phi\nabla_{\nu}\Phi\hat{g}_{ab}\nonumber \\
+ & =-\frac{1}{2}\left(\nabla_{\nu}\nabla^{\mu}\Phi+\frac{1}{2}\nabla^{\mu}\Phi\nabla_{\nu}\Phi\right)\hat{g}_{ab}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{R}^{a}{}_{\mu b\nu} & =\partial_{b}\hat{\Gamma}_{\nu\mu}^{a}-\partial_{\nu}\hat{\Gamma}_{b\mu}^{a}+\hat{\Gamma}_{b\lambda}^{a}\hat{\Gamma}_{\nu\mu}^{\lambda}-\hat{\Gamma}_{\nu c}^{a}\hat{\Gamma}_{b\mu}^{c}\nonumber \\
+ & =-\left(\partial_{\nu}\hat{\Gamma}_{b\mu}^{a}-\hat{\Gamma}_{\nu\mu}^{\lambda}\hat{\Gamma}_{b\lambda}^{a}\right)-\hat{\Gamma}_{\nu c}^{a}\hat{\Gamma}_{b\mu}^{c}\nonumber \\
+ & =-\frac{1}{2}\nabla_{\nu}\left(\delta_{b}^{a}\nabla_{\mu}\Phi\right)-\frac{1}{4}\delta_{c}^{a}\nabla_{\nu}\Phi\delta_{b}^{c}\nabla_{\mu}\Phi\nonumber \\
+ & =-\frac{1}{2}\delta_{b}^{a}\left(\nabla_{\nu}\nabla_{\mu}\Phi+\frac{1}{2}\nabla_{\nu}\Phi\nabla_{\mu}\Phi\right)
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{R}^{\sigma}{}_{\rho\mu\nu} & =R^{\sigma}{}_{\rho\mu\nu}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{R}^{\mu}{}_{abc} & =\partial_{b}\hat{\Gamma}_{ca}^{\mu}-\partial_{c}\hat{\Gamma}_{ba}^{\mu}+\hat{\Gamma}_{bd}^{\mu}\hat{\Gamma}_{ca}^{d}-\hat{\Gamma}_{cd}^{\mu}\hat{\Gamma}_{ba}^{d}\nonumber \\
+ & =\left(\partial_{b}\hat{\Gamma}_{ca}^{\mu}-\hat{\Gamma}_{ba}^{d}\hat{\Gamma}_{cd}^{\mu}-\hat{\Gamma}_{bc}^{d}\hat{\Gamma}_{da}^{\mu}\right)-\left(\partial_{c}\hat{\Gamma}_{ba}^{\mu}-\hat{\Gamma}_{ca}^{d}\hat{\Gamma}_{bd}^{\mu}-\hat{\Gamma}_{cb}^{d}\hat{\Gamma}_{da}^{\mu}\right)\nonumber \\
+ & =-\frac{1}{2}\left(\nabla^{\mu}\Phi\right)\nabla_{b}\hat{g}_{ca}+\frac{1}{2}\left(\nabla^{\mu}\Phi\right)\nabla_{c}\hat{g}_{ba}\nonumber \\
+ & =-\frac{1}{2}\left(\nabla^{\mu}\Phi\right)\mathrm{e}^{\Phi\left(x\right)}\left(\nabla_{b}h_{ca}-\nabla_{c}h_{ba}\right)\nonumber \\
+ & =0
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{R}^{\mu}{}_{\nu ab} & =\partial_{a}\hat{\Gamma}_{b\nu}^{\mu}-\partial_{b}\hat{\Gamma}_{a\nu}^{\mu}+\hat{\Gamma}_{ac}^{\mu}\hat{\Gamma}_{b\nu}^{c}-\hat{\Gamma}_{bc}^{\mu}\hat{\Gamma}_{a\nu}^{c}\nonumber \\
+ & =\hat{\Gamma}_{ac}^{\mu}\hat{\Gamma}_{b\nu}^{c}-\hat{\Gamma}_{bc}^{\mu}\hat{\Gamma}_{a\nu}^{c}\nonumber \\
+ & =-\frac{1}{4}\left(\nabla^{\mu}\Phi\right)\hat{g}_{ac}\delta_{b}^{c}\nabla_{\nu}\Phi+\frac{1}{4}\left(\nabla^{\mu}\Phi\right)\hat{g}_{bc}\delta_{a}^{c}\nabla_{\nu}\Phi\nonumber \\
+ & =-\frac{1}{4}\nabla^{\mu}\Phi\nabla_{\nu}\Phi\left(\hat{g}_{ab}-\hat{g}_{ba}\right)\nonumber \\
+ & =0
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{R}^{a}{}_{\rho\mu\nu} & =\partial_{\mu}\hat{\Gamma}_{\nu\rho}^{a}-\partial_{\nu}\hat{\Gamma}_{\mu\rho}^{a}+\hat{\Gamma}_{\mu\lambda}^{a}\hat{\Gamma}_{\nu\rho}^{\lambda}-\hat{\Gamma}_{\nu\lambda}^{a}\hat{\Gamma}_{\mu\rho}^{\lambda}\nonumber \\
+ & =0
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+里奇张量
+\end_layout
+
+\begin_layout Standard
+由定义
+\begin_inset Formula 
+\[
+R_{\mu\nu}=R^{\lambda}{}_{\mu\lambda\nu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\hat{R}_{\mu\nu} & =\hat{R}^{\lambda}{}_{\mu\lambda\nu}+\hat{R}^{a}{}_{\mu a\nu}\nonumber \\
+ & =R_{\mu\nu}-\frac{1}{2}\delta_{a}^{a}\left(\nabla_{\nu}\nabla_{\mu}\Phi+\frac{1}{2}\nabla_{\nu}\Phi\nabla_{\mu}\Phi\right)\nonumber \\
+ & =R_{\mu\nu}+nA_{\mu\nu}
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+n=\dim M_{2},\quad A_{\mu\nu}=-\frac{1}{2}\left(\nabla_{\nu}\nabla_{\mu}\Phi+\frac{1}{2}\nabla_{\nu}\Phi\nabla_{\mu}\Phi\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{R}_{ab} & =\hat{R}^{c}{}_{acb}+\hat{R}^{\lambda}{}_{a\lambda b}\nonumber \\
+ & =R_{ab}-\frac{1}{4}\left(\hat{g}_{ab}\delta_{c}^{c}-\hat{g}_{ac}\delta_{b}^{c}\right)\nabla_{\lambda}\Phi\nabla^{\lambda}\Phi+\hat{R}^{\lambda}{}_{a\lambda b}\nonumber \\
+ & =R_{ab}-\frac{n-1}{4}\hat{g}_{ab}\nabla_{\lambda}\Phi\nabla^{\lambda}\Phi-\frac{1}{2}\left(\nabla_{\lambda}\nabla^{\lambda}\Phi+\frac{1}{2}\nabla^{\lambda}\Phi\nabla_{\lambda}\Phi\right)\hat{g}_{ab}\nonumber \\
+ & =R_{ab}-\frac{1}{2}\left(\nabla_{\lambda}\nabla^{\lambda}\Phi+\frac{n}{2}\nabla^{\lambda}\Phi\nabla_{\lambda}\Phi\right)\hat{g}_{ab}\nonumber \\
+ & =R_{ab}+B\hat{g}_{ab}
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+B=-\frac{1}{2}\left(\nabla_{\lambda}\nabla^{\lambda}\Phi+\frac{n}{2}\nabla^{\lambda}\Phi\nabla_{\lambda}\Phi\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\hat{R}_{\mu a} & =0
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+曲率标量
+\end_layout
+
+\begin_layout Standard
+由定义
+\begin_inset Formula 
+\[
+R=R^{\mu}{}_{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\hat{R} & =\hat{g}^{\mu\nu}\hat{R}_{\mu\nu}+\hat{g}^{ab}\hat{R}_{ab}\nonumber \\
+ & =\hat{g}^{\mu\nu}R_{\mu\nu}+n\hat{g}^{\mu\nu}A_{\mu\nu}+\hat{g}^{ab}R_{ab}+B\hat{g}^{ab}\hat{g}_{ab}\nonumber \\
+ & =g^{\mu\nu}R_{\mu\nu}+nA+\mathrm{e}^{-\Phi}h^{ab}R_{ab}+nB\nonumber \\
+ & =R^{\left(g\right)}+\mathrm{e}^{-\Phi}R^{\left(h\right)}+n\left(A+B\right)
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+A=A^{\mu}{}_{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
