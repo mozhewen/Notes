@@ -1,0 +1,615 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+% 公式（amsmath）
+\allowdisplaybreaks[3]
+
+% 段间距置0
+\setlength{\parskip}{0pt}
+
+% 避免脚注换页
+\interfootnotelinepenalty=10000
+
+% 定理证明
+\usepackage{amsthm}
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package default
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_title "氢原子（开普勒问题）的动力学对称性"
+\pdf_author "莫哲文"
+\pdf_subject "Notes"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3.17cm
+\topmargin 2.54cm
+\rightmargin 3.17cm
+\bottommargin 2.54cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+氢原子（开普勒问题）的动力学对称性
+\end_layout
+
+\begin_layout Author
+莫哲文
+\end_layout
+
+\begin_layout Address
+学号：201728000907043
+\end_layout
+
+\begin_layout Section
+引言
+\end_layout
+
+\begin_layout Standard
+在量子力学中，我们知道对于中心力场问题：
+\begin_inset Formula 
+\[
+H=\frac{p^{2}}{2m}+V\left(r\right)
+\]
+
+\end_inset
+
+由于系统的
+\begin_inset Formula $SO\left(3\right)$
+\end_inset
+
+对称性，能级一般会出现简并，而且能级
+\begin_inset Formula $E$
+\end_inset
+
+对应本征态的本征空间（eigenspace）构成
+\begin_inset Formula $SO\left(3\right)$
+\end_inset
+
+群的一个表示。如果这个表示是不可约表示
+\begin_inset Formula $D^{l}$
+\end_inset
+
+，这时
+\begin_inset Formula $SO\left(3\right)$
+\end_inset
+
+对称性可以完全解释能级简并的原因，那么这样的简并称作
+\series bold
+正则简并
+\series default
+。不过可以想象，对于某些特殊的中心势，能级的简并程度可能高于
+\begin_inset Formula $SO\left(3\right)$
+\end_inset
+
+对称性所能解释的范围，这时能级
+\begin_inset Formula $E$
+\end_inset
+
+的本征空间构成
+\begin_inset Formula $SO\left(3\right)$
+\end_inset
+
+群的可约表示 ，它能向不可约表示进行约化，得到
+\begin_inset Formula $D^{l_{1}}\oplus\cdots\oplus D^{l_{n}}$
+\end_inset
+
+，
+\begin_inset Formula $SO\left(3\right)$
+\end_inset
+
+对称性并不能告诉我们为什么这些不同的不可约表示会对应相同的能级，这时就称简并为
+\series bold
+偶然简并
+\series default
+。偶然简并虽然表面上看起来是偶然发生的，但实际上往往暗示着隐藏在系统更深处的某种对称性。
+\end_layout
+
+\begin_layout Standard
+最熟知的偶然简并的例子莫过于非相对论氢原子的能级
+\begin_inset Formula 
+\begin{align*}
+H & =\frac{p^{2}}{2m_{e}}-\frac{\alpha}{r}\\
+E_{n} & =-\frac{m_{e}\alpha^{2}}{2n^{2}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $E_{n}$
+\end_inset
+
+的本征空间对应
+\begin_inset Formula $SO\left(3\right)$
+\end_inset
+
+群的可约表示
+\begin_inset Formula $D^{0}\oplus\cdots\oplus D^{n-1}$
+\end_inset
+
+。本文的主要内容即是探究氢原子能级的偶然简并所对应的系统的动力学对称性。
+\end_layout
+
+\begin_layout Section
+经典力学中的开普勒问题
+\end_layout
+
+\begin_layout Standard
+氢原子问题在经典力学中有一个自然的对应，那就是行星运动的开普勒问题：
+\begin_inset Formula 
+\[
+L=\frac{1}{2}m\dot{\mathbf{r}}^{2}+\frac{k}{r}
+\]
+
+\end_inset
+
+很容易看出，体系具有时间平移以及绕原点空间转动的不变性，因此有能量
+\begin_inset Formula $E$
+\end_inset
+
+守恒与角动量
+\begin_inset Formula $\mathbf{L}$
+\end_inset
+
+守恒。除此以外，系统还隐藏着动力学对称性。考虑无穷小变换（
+\begin_inset Formula $\boldsymbol{\varepsilon}\ll1$
+\end_inset
+
+）：
+\begin_inset Formula 
+\begin{equation}
+\delta\mathbf{r}=\frac{1}{2}\left[2\mathbf{p}\left(\mathbf{r}\cdot\boldsymbol{\varepsilon}\right)-\mathbf{r}\left(\mathbf{p}\cdot\boldsymbol{\varepsilon}\right)-\left(\mathbf{r}\cdot\mathbf{p}\right)\boldsymbol{\varepsilon}\right]\label{eq:2.1}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\mathbf{p}\equiv m\dot{\mathbf{r}}
+\]
+
+\end_inset
+
+在此变换下拉氏量改变
+\begin_inset Formula 
+\begin{align*}
+\delta L & =\mathbf{p}\cdot\delta\dot{\mathbf{r}}-\frac{k}{r^{3}}\mathbf{r}\cdot\delta\mathbf{r}
+\end{align*}
+
+\end_inset
+
+请注意！这里考虑到欧拉-拉格朗日方程（运动方程）
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{p}=-\frac{k}{r^{3}}\mathbf{r}
+\]
+
+\end_inset
+
+有
+\begin_inset Formula 
+\begin{align}
+\delta\dot{\mathbf{r}} & =\frac{1}{2}\left[\underline{2\dot{\mathbf{p}}\left(\mathbf{r}\cdot\boldsymbol{\varepsilon}\right)}+\mathbf{p}\left(\dot{\mathbf{r}}\cdot\boldsymbol{\varepsilon}\right)-\underline{\mathbf{r}\left(\dot{\mathbf{p}}\cdot\boldsymbol{\varepsilon}\right)}-\left(\dot{\mathbf{r}}\cdot\mathbf{p}\right)\boldsymbol{\varepsilon}-\left(\mathbf{r}\cdot\dot{\mathbf{p}}\right)\boldsymbol{\varepsilon}\right]\nonumber \\
+ & =\frac{1}{2}\left[\underline{-\frac{k}{r^{3}}\mathbf{r}\left(\mathbf{r}\cdot\boldsymbol{\varepsilon}\right)}+\mathbf{p}\left(\dot{\mathbf{r}}\cdot\boldsymbol{\varepsilon}\right)-\left(\dot{\mathbf{r}}\cdot\mathbf{p}\right)\boldsymbol{\varepsilon}+\frac{k}{r}\boldsymbol{\varepsilon}\right]\label{eq:2.2}
+\end{align}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\begin{align*}
+\delta L & =\frac{1}{2}\left[-\frac{k}{r^{3}}\left(\mathbf{p}\cdot\mathbf{r}\right)\left(\mathbf{r}\cdot\boldsymbol{\varepsilon}\right)+\underline{\mathbf{p}^{2}\left(\dot{\mathbf{r}}\cdot\boldsymbol{\varepsilon}\right)}-\underline{\left(\dot{\mathbf{r}}\cdot\mathbf{p}\right)\left(\mathbf{p}\cdot\boldsymbol{\varepsilon}\right)}+\frac{k}{r}\left(\mathbf{p}\cdot\boldsymbol{\varepsilon}\right)\right]\\
+ & \qquad+\frac{1}{2}\left[-2\frac{k}{r^{3}}\left(\mathbf{r}\cdot\mathbf{p}\right)\left(\mathbf{r}\cdot\boldsymbol{\varepsilon}\right)+\frac{k}{r}\left(\mathbf{p}\cdot\boldsymbol{\varepsilon}\right)+\frac{k}{r^{3}}\left(\mathbf{r}\cdot\mathbf{p}\right)\left(\mathbf{r}\cdot\boldsymbol{\varepsilon}\right)\right]\\
+ & =-\frac{k}{r^{3}}\left(\mathbf{r}\cdot\mathbf{p}\right)\left(\mathbf{r}\cdot\boldsymbol{\varepsilon}\right)+\frac{k}{r}\left(\mathbf{p}\cdot\boldsymbol{\varepsilon}\right)+\underline{0}=-\frac{mk}{r^{3}}\left(\mathbf{r}\cdot\dot{\mathbf{r}}\right)\left(\mathbf{r}\cdot\boldsymbol{\varepsilon}\right)+\frac{mk}{r}\left(\dot{\mathbf{r}}\cdot\boldsymbol{\varepsilon}\right)\\
+ & =\boldsymbol{\varepsilon}\cdot\frac{\mathrm{d}}{\mathrm{d}t}\left(mk\frac{\mathbf{r}}{r}\right)\equiv\boldsymbol{\varepsilon}\cdot\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{f}
+\end{align*}
+
+\end_inset
+
+即拉氏量在无穷小变换
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.1"
+
+\end_inset
+
+下的改变为一个全导数项，这说明变换
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.1"
+
+\end_inset
+
+确实是体系的一种对称性。这种对称性有两点不同于通常意义上对称性：第一，变换
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.1"
+
+\end_inset
+
+含有坐标对时间的导数
+\begin_inset Formula $\dot{\mathbf{r}}$
+\end_inset
+
+，因此不是一种空间对称性（变换只是
+\begin_inset Formula $\mathbf{r}$
+\end_inset
+
+的函数）；第二，在
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.2"
+
+\end_inset
+
+式的推导过程中使用了欧拉-拉格朗日方程，因此甚至不能认为它是拉氏量的一种对称性，这种对称性只有在满足运动方程的真实路径附近才成立，称其为在壳（on-shell）
+对称性
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-wiki2"
+
+\end_inset
+
+。不妨将满足这两点的广义的对称性称作
+\series bold
+动力学对称性
+\series default
+。
+\end_layout
+
+\begin_layout Standard
+令人惊讶的是，在诺特定理的证明过程中，对上述两点其实并没有做出要求，即使是这样一种广义的对称性，依然对应有守恒量。由诺特定理
+\begin_inset Formula 
+\[
+\frac{\partial L}{\partial\dot{\mathbf{r}}}\cdot\frac{\delta\mathbf{r}}{\boldsymbol{\varepsilon}}+L\frac{\delta t}{\boldsymbol{\varepsilon}}-\mathbf{f}=\mathrm{const.}
+\]
+
+\end_inset
+
+可得
+\begin_inset Formula 
+\begin{align}
+\mathbf{A} & \equiv\frac{1}{2}\left[2\left(\mathbf{p}^{2}\right)\mathbf{r}-\left(\mathbf{p}\cdot\mathbf{r}\right)\mathbf{p}-\mathbf{p}\left(\mathbf{r}\cdot\mathbf{p}\right)\right]-mk\frac{\mathbf{r}}{r}\nonumber \\
+ & =\left(\mathbf{p}^{2}\right)\mathbf{r}-\left(\mathbf{p}\cdot\mathbf{r}\right)\mathbf{p}-mk\frac{\mathbf{r}}{r}\nonumber \\
+ & =\mathbf{p}\times\left(\mathbf{r}\times\mathbf{p}\right)-mk\frac{\mathbf{r}}{r}=\mathrm{const.}\label{eq:2.3}
+\end{align}
+
+\end_inset
+
+矢量
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+就是著名的拉普拉斯-龙格-楞次矢量
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+该矢量虽然以三位科学家的名字命名，但其实并不是他们最先发现的
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-wiki1"
+
+\end_inset
+
+。
+\end_layout
+
+\end_inset
+
+。可以证明（略），角动量
+\begin_inset Formula $\mathbf{L}$
+\end_inset
+
+与矢量
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+的泊松括号为
+\begin_inset Formula 
+\begin{align*}
+\left\{ L_{i},L_{j}\right\}  & =\epsilon_{ijk}L_{k}\\
+\left\{ A_{i},L_{j}\right\}  & =\epsilon_{ijk}A_{k}\\
+\left\{ A_{i},A_{j}\right\}  & =-2m\epsilon_{ijk}L_{k}H
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $H$
+\end_inset
+
+为哈密顿量。
+\end_layout
+
+\begin_layout Section
+量子力学中的氢原子
+\end_layout
+
+\begin_layout Standard
+受到经典力学的启发，我们思考：在量子力学中氢原子是否同样存在守恒量算符
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.3"
+
+\end_inset
+
+？由于量子力学中算符
+\begin_inset Formula $\mathbf{p}$
+\end_inset
+
+与
+\begin_inset Formula $\mathbf{L}=\mathbf{r}\times\mathbf{p}$
+\end_inset
+
+不对易，所以直接照搬
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.3"
+
+\end_inset
+
+式的定义是不行的——这样的
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+不是厄米算符。不妨定义
+\begin_inset Formula 
+\[
+\mathbf{A}\equiv\frac{1}{2}\left(\mathbf{p}\times\mathbf{L}-\mathbf{L}\times\mathbf{p}\right)-m_{e}\alpha\frac{\mathbf{r}}{r}
+\]
+
+\end_inset
+
+直接计算可得
+\begin_inset Formula 
+\begin{align*}
+\left[\mathbf{A},H\right] & =\frac{1}{2}\left(\left[\mathbf{p},-\frac{\alpha}{r}\right]\times\mathbf{L}-\mathbf{L}\times\left[\mathbf{p}.-\frac{\alpha}{r}\right]\right)-m_{e}\alpha\left[\frac{\mathbf{r}}{r},\frac{p^{2}}{2m_{e}}\right]\\
+ & =\frac{-i\alpha}{2r^{3}}\left(\mathbf{r}\times\mathbf{L}-\mathbf{L}\times\mathbf{r}\right)-\frac{\alpha}{2}\left(\left[\frac{\mathbf{r}}{r},p_{i}\right]p_{i}+p_{i}\left[\frac{\mathbf{r}}{r},p_{i}\right]\right)\\
+ & \overset{k}{=}\frac{-i\alpha}{2r^{3}}\epsilon_{ijk}\left(r_{i}L_{j}+L_{j}r_{i}\right)-\frac{\alpha}{2}i\left(\frac{\delta_{ik}r^{2}-r_{i}r_{k}}{r^{3}}p_{i}+p_{i}\frac{\delta_{ik}r^{2}-r_{i}r_{k}}{r^{3}}\right)\\
+ & =\frac{-i\alpha}{2r^{3}}\epsilon_{ijk}\left(2r_{i}L_{j}+\left[L_{j},r_{i}\right]\right)-\frac{\alpha}{2}i\left(2\frac{\delta_{ik}r^{2}-r_{i}r_{k}}{r^{3}}p_{i}+\left[p_{k}.\frac{1}{r}\right]-\left[p_{i},\frac{r_{i}r_{k}}{r^{3}}\right]\right)\\
+ & =\frac{-i\alpha}{2r^{3}}\epsilon_{ijk}\left(2\epsilon_{lmj}r_{i}r_{l}p_{m}-i\epsilon_{ijl}r_{l}\right)-\frac{i\alpha}{2}\left(2\frac{\delta_{ik}r^{2}-r_{i}r_{k}}{r^{3}}p_{i}+i\frac{r_{k}}{r^{3}}+i\frac{4r_{k}\cdot r^{3}-r_{i}r_{k}3r^{2}r_{i}/r}{r^{6}}\right)\\
+ & =\frac{-i\alpha}{r^{3}}\left(r_{i}r_{k}p_{i}-r^{2}p_{k}-ir_{k}\right)-i\alpha\left(\frac{\delta_{ik}r^{2}-r_{i}r_{k}}{r^{3}}p_{i}+i\frac{r_{k}}{r^{3}}\right)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+因此
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+的确是守恒量。与经典力学的泊松括号类似，可以算出对易关系
+\begin_inset Formula 
+\begin{align*}
+\left[L_{i},L_{j}\right] & =i\epsilon_{ijk}L_{k}\\
+\left[A_{i},L_{j}\right] & =i\epsilon_{ijk}A_{k}\\
+\left[A_{i},A_{j}\right] & =-i2m_{e}\epsilon_{ijk}L_{k}H
+\end{align*}
+
+\end_inset
+
+定义缩放后的拉普拉斯-龙格-楞次矢量
+\begin_inset Formula 
+\[
+\mathbf{D}=\mathbf{A}/\sqrt{2m_{e}\left(-H\right)}
+\]
+
+\end_inset
+
+则
+\begin_inset Formula 
+\begin{align*}
+\left[L_{i},L_{j}\right] & =i\epsilon_{ijk}L_{k}\\
+\left[D_{i},L_{j}\right] & =i\epsilon_{ijk}D_{k}\\
+\left[D_{i},D_{j}\right] & =i\epsilon_{ijk}L_{k}
+\end{align*}
+
+\end_inset
+
+此李代数是在
+\begin_inset Formula $so\left(3\right)$
+\end_inset
+
+基础上的一个扩充，它同构于
+\begin_inset Formula $so\left(4\right)$
+\end_inset
+
+，在这个意义上，称体系具有动力学
+\begin_inset Formula $SO\left(4\right)$
+\end_inset
+
+对称性。事实上，可以证明，由上述算符生成的群是
+\begin_inset Formula $G=SO\left(4\right)/\mathbb{Z}_{2}\sim SO\left(3\right)\times SO\left(3\right)$
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-wiki1"
+
+\end_inset
+
+。因此，能级
+\begin_inset Formula $E$
+\end_inset
+
+的本征空间应构成这个更大的群
+\begin_inset Formula $G$
+\end_inset
+
+的一个表示，由于一般
+\begin_inset Formula $\mathbf{D}$
+\end_inset
+
+与
+\begin_inset Formula $\mathbf{L}^{2}$
+\end_inset
+
+不对易，由
+\begin_inset Formula $\mathbf{D}$
+\end_inset
+
+生成的对称变换会改变
+\begin_inset Formula $\mathbf{L}^{2}$
+\end_inset
+
+的取值，因此一般群
+\begin_inset Formula $G$
+\end_inset
+
+的表示对子群
+\begin_inset Formula $SO\left(3\right)$
+\end_inset
+
+的分导表示不是不可约的，这就解释了氢原子能级的“偶然简并”现象。
+\end_layout
+
+\begin_layout Standard
+最后让我们使用算符方法计算氢原子的能级。构造卡西米尔算子，可以算得
+\begin_inset Formula 
+\begin{align*}
+C_{1} & \equiv\mathbf{D}^{2}+\mathbf{L}^{2}=-\frac{m_{e}\alpha^{2}}{2}H^{-1}-1\\
+C_{2} & \equiv\mathbf{D}\cdot\mathbf{L}=0
+\end{align*}
+
+\end_inset
+
+令
+\begin_inset Formula 
+\[
+\mathbf{J}=\frac{1}{2}\left(\mathbf{D}+\mathbf{L}\right)
+\]
+
+\end_inset
+
+很容易验证
+\begin_inset Formula $\mathbf{J}$
+\end_inset
+
+满足角动量的对易关系，因此
+\begin_inset Formula 
+\[
+C_{1}=4\mathbf{J}^{2}\xrightarrow{\mathrm{eigenvalue}}4j\left(j+1\right)=\left(2j+1\right)^{2}-1
+\]
+
+\end_inset
+
+而
+\begin_inset Formula 
+\begin{align*}
+j & =0,\frac{1}{2},1,\frac{3}{2},\ldots\\
+\Rightarrow j & =\frac{n-1}{2},\quad n=1,2,3,\ldots
+\end{align*}
+
+\end_inset
+
+所以
+\begin_inset Formula 
+\begin{align*}
+C_{1} & \xrightarrow{\mathrm{eigenvalue}}n^{2}-1\\
+\Rightarrow E_{n} & =-\frac{m_{e}\alpha^{2}}{2n^{2}}
+\end{align*}
+
+\end_inset
+
+这就是一开始我们提到的氢原子能级公式。
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-wiki1"
+
+\end_inset
+
+https://en.wikipedia.org/wiki/Laplace–Runge–Lenz_vector
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-wiki2"
+
+\end_inset
+
+https://en.wikipedia.org/wiki/Noether's_theorem
+\end_layout
+
+\end_body
+\end_document
