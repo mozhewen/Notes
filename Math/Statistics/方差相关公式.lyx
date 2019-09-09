@@ -1,0 +1,207 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+% 公式（amsmath）
+\allowdisplaybreaks[3]
+
+% 段间距置0
+\setlength{\parskip}{0pt}
+
+% 避免脚注换页
+\interfootnotelinepenalty=10000
+
+% 定理证明
+\usepackage{amsthm}
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package default
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "方差相关公式"
+\pdf_author "莫哲文"
+\pdf_subject "Notes"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3.17cm
+\topmargin 2.54cm
+\rightmargin 3.17cm
+\bottommargin 2.54cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+方差相关公式
+\end_layout
+
+\begin_layout Section
+样本方差与总体方差
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+E\left\{ \frac{1}{N}\sum_{i=1}^{N}\left(x_{i}-\frac{1}{N}\sum_{j=1}^{N}x_{j}\right)^{2}\right\}  & =E\left\{ \frac{1}{N}\sum_{i=1}^{N}\left(x_{i}^{2}+\frac{1}{N^{2}}\sum_{j=1}^{N}x_{j}^{2}-2x_{i}\frac{1}{N}\sum_{j=1}^{N}x_{j}+\frac{1}{N^{2}}\sum^{N}x_{j_{1}}x_{j_{2}}\right)\right\} \\
+ & =\frac{1}{N}\Biggl(NE\left[x^{2}\right]+E\left[x^{2}\right]-\frac{2}{N}\left(N\left(N-1\right)\left(E\left[x\right]\right)^{2}+NE\left[x^{2}\right]\right)\\
+ & \qquad+\frac{1}{N}N\left(N-1\right)\left(E\left[x\right]\right)^{2}\Biggr)\\
+ & =E\left[x^{2}\right]+\frac{1}{N}E\left[x^{2}\right]-2\frac{\left(N-1\right)\left(E\left[x\right]\right)^{2}+E\left[x^{2}\right]}{N}+\frac{N-1}{N}\left(E\left[x\right]\right)^{2}\\
+ & =\frac{N-1}{N}E\left[x^{2}\right]-\frac{N-1}{N}\left(E\left[x\right]\right)^{2}\\
+ & =\frac{N-1}{N}\mathrm{Var}\left[x\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以定义
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s^{2}=\frac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\frac{1}{N}\sum_{j=1}^{N}x_{j}\right)^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+E\left[s^{2}\right]=\mathrm{Var}\left[x\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+均值方差递推式
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{N}\equiv\sum_{i=1}^{N}x_{i},\quad\bar{x}_{N}\equiv\frac{S_{N}}{N},\quad F_{N}\equiv\sum_{i=1}^{N}\left(x_{i}-\bar{x}_{N}\right)^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+F_{N} & =\sum_{i=1}^{N}x_{i}^{2}-N\bar{x}_{N}^{2}\\
+ & =F_{N-1}+x_{N}^{2}+\left(N-1\right)\bar{x}_{N-1}^{2}-N\bar{x}_{N}^{2}\\
+ & =F_{N-1}+x_{N}^{2}+S_{N-1}\bar{x}_{N-1}-S_{N}\bar{x}_{N}\\
+ & =F_{N-1}+x_{N}^{2}+\left(S_{N}-x_{N}\right)\bar{x}_{N-1}-\left(S_{N-1}+x_{N}\right)\bar{x}_{N}\\
+ & =F_{N-1}+x_{N}^{2}-x_{N}\left(\bar{x}_{N-1}+\bar{x}_{N}\right)+N\bar{x}_{N}\bar{x}_{N-1}-\left(N-1\right)\bar{x}_{N}\bar{x}_{N-1}\\
+ & =F_{N-1}+\left(x_{N}-\bar{x}_{N-1}\right)\left(x_{N}-\bar{x}_{N}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+均值递推式
+\begin_inset Formula 
+\[
+\bar{x}_{N}=\frac{\left(N-1\right)\bar{x}_{N-1}+x_{N}}{N}=\bar{x}_{N-1}+\frac{x_{N}-\bar{x}_{N-1}}{N}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
