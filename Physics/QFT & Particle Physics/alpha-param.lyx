@@ -1,0 +1,3701 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+\usepackage[most]{tcolorbox}
+
+\allowdisplaybreaks[4]
+
+\usepackage{tensor}
+\newcommand\hyperF{\tensor*[_{2}]{F}{_{1}}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+
+\tikzset{
+	every picture/.style=semithick,
+	scalar/.style={dashed},
+	fermion/.default=0.5,
+	fermion/.style={postaction={decorate, decoration={
+        markings,
+        mark=at position #1 with {\arrow{Stealth[angle=30:6pt,inset=1pt]}},
+		transform={xshift={3pt*cos(15)}}
+    }}},
+	antifermion/.default=0.5,
+	antifermion/.style={postaction={decorate, decoration={
+        markings,
+        mark=at position #1 with {\arrowreversed{Stealth[angle=30:6pt,inset=1pt]}},
+		transform={xshift={-3pt*cos(15)}}
+    }}},
+	photon/.style={decorate, decoration={
+		snake,
+		pre length=2pt,
+		post length=2pt
+	}}
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package default
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Notes"
+\pdf_author "莫哲文"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Notes
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $\alpha$
+\end_inset
+
+参数与Feynman参数
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\alpha$
+\end_inset
+
+参数
+\end_layout
+
+\begin_layout Subsubsection
+分母
+\end_layout
+
+\begin_layout Standard
+利用Gamma函数的定义，对于
+\begin_inset Formula $\mathrm{Re}a>0$
+\end_inset
+
+，
+\begin_inset Formula $s$
+\end_inset
+
+为实数且
+\begin_inset Formula $s\sim s+i0$
+\end_inset
+
+的情况，有
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\int_{0}^{\infty}d\alpha\alpha^{a-1}e^{is\alpha} & =\frac{1}{\left(-is\right)^{a}}\int_{0}^{\infty}d\left(-is\alpha\right)\left(-is\alpha\right)^{a-1}e^{is\alpha}\nonumber \\
+ & =\frac{1}{\left(-is\right)^{a}}{\color{red}\int_{0}^{-i\infty\left(s+0i\right)}d\lambda}\lambda^{a-1}e^{-\lambda}\nonumber \\
+ & =\frac{1}{\left(-is\right)^{a}}{\color{red}\int_{0}^{\infty}d\lambda}\lambda^{a-1}e^{-\lambda}=\frac{\Gamma\left(a\right)}{\left(-is\right)^{a}}\label{eq:GammaI}
+\end{align}
+
+\end_inset
+
+即
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\left(s+i0\right)^{a}}=\frac{\left(-i\right)^{a}}{\Gamma\left(a\right)}\int_{0}^{\infty}\alpha^{a-1}e^{is\alpha}d\alpha\label{eq:demon}
+\end{equation}
+
+\end_inset
+
+注意在
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GammaI"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+中
+\color red
+红色
+\color inherit
+标记的积分围道在变化后
+\begin_inset Formula $\lambda^{a}$
+\end_inset
+
+取主值（即
+\begin_inset Formula $\arg\lambda=0$
+\end_inset
+
+），这需要围道变化之前的
+\begin_inset Formula $\lambda^{a}$
+\end_inset
+
+也取主值（即
+\begin_inset Formula $-\pi/2<\arg\lambda<\pi/2$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+对于任意复数
+\begin_inset Formula $z$
+\end_inset
+
+，主值区间选为
+\begin_inset Formula $-\pi<\arg z\le\pi$
+\end_inset
+
+（注意这个等号），选这个主值区间的好处是
+\series bold
+除了负实数以外
+\series default
+，均有
+\begin_inset Formula $1/z^{a}\equiv z^{-a}=\left(1/z\right)^{a}$
+\end_inset
+
+，若
+\begin_inset Formula $z$
+\end_inset
+
+为负数，则有
+\begin_inset Formula $z^{-a}=\left(1/z\right)^{a}e^{-2i\pi a}$
+\end_inset
+
+。另外，选择任意的主值区间，都有
+\begin_inset Formula $z^{a}z^{b}=z^{a+b}$
+\end_inset
+
+，但
+\begin_inset Formula $\left(z^{a}\right)^{b}\overset{?}{=}z^{ab},\:z^{a}w^{a}\overset{?}{=}\left(zw\right)^{a}$
+\end_inset
+
+都是不一定的。
+\end_layout
+
+\end_inset
+
+），即
+\begin_inset Formula $\left(-is\right)^{a}$
+\end_inset
+
+取主值。为得到
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:demon"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式，需将
+\begin_inset Formula $\left(-is\right)^{a}\rightarrow\left(-i\right)^{a}s^{a}$
+\end_inset
+
+，我们想让
+\begin_inset Formula $\left(-i\right)^{a}$
+\end_inset
+
+
+\series bold
+永远取主值
+\series default
+，容易证明这对于
+\begin_inset Formula $s$
+\end_inset
+
+为实数的情况正好相当于
+\begin_inset Formula $s^{a}$
+\end_inset
+
+按
+\begin_inset Formula $\left(s+i0\right)^{a}$
+\end_inset
+
+取主值来理解。
+\end_layout
+
+\begin_layout Standard
+按照V.A.
+ Smirnov的经验，很多情况下传播子分母取相反的符号
+\begin_inset Formula 
+\[
+\frac{1}{p^{2}-m^{2}+i0}\rightarrow-\frac{1}{-p^{2}+m^{2}-i0}
+\]
+
+\end_inset
+
+会使得结果更加自然。我们对
+\begin_inset Formula $s\sim s-i0$
+\end_inset
+
+的情况重新得到
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:demon"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式的类似：
+\begin_inset Formula 
+\begin{align}
+\int_{0}^{\infty}d\alpha\alpha^{a-1}e^{-is\alpha} & =\frac{1}{\left(is\right)^{a}}\int_{0}^{\infty}d\left(is\alpha\right)\left(is\alpha\right)^{a-1}e^{-is\alpha}\nonumber \\
+ & =\frac{1}{\left(is\right)^{a}}{\color{red}\int_{0}^{i\infty\left(s-0i\right)}d\lambda}\lambda^{a-1}e^{-\lambda}\nonumber \\
+ & =\frac{1}{\left(is\right)^{a}}{\color{red}\int_{0}^{\infty}d\lambda}\lambda^{a-1}e^{-\lambda}=\frac{\Gamma\left(a\right)}{\left(is\right)^{a}}\label{eq:GammaI-1}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\left(s-i0\right)^{a}}=\frac{i^{a}}{\Gamma\left(a\right)}\int_{0}^{\infty}\alpha^{a-1}e^{-is\alpha}d\alpha\label{eq:demon-1}
+\end{equation}
+
+\end_inset
+
+同样的讨论，
+\begin_inset Formula $\left(is\right)^{a}\rightarrow i^{a}s^{a}$
+\end_inset
+
+，我们想让
+\begin_inset Formula $i^{a}$
+\end_inset
+
+取主值，可以证明
+\begin_inset Formula $s^{a}$
+\end_inset
+
+刚好按
+\begin_inset Formula $\left(s-i0\right)^{a}$
+\end_inset
+
+取主值理解。
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GammaI"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:demon"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式与
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GammaI-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:demon-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式之间简单地以
+\begin_inset Formula $i\leftrightarrow-i$
+\end_inset
+
+相互对应。
+\end_layout
+
+\begin_layout Subsubsection
+分子
+\end_layout
+
+\begin_layout Standard
+对于关于
+\begin_inset Formula $s=\left(s_{1},s_{2},\ldots\right)$
+\end_inset
+
+的多项式
+\begin_inset Formula $Z\left(s\right)$
+\end_inset
+
+，有
+\begin_inset Formula 
+\[
+Z\left(s\right)=\left.Z\left(\frac{1}{2i}\frac{\partial}{\partial u}\right)e^{2iu\cdot s}\right|_{u=0}
+\]
+
+\end_inset
+
+（显然）。这个操作的目的是将
+\begin_inset Formula $s$
+\end_inset
+
+转移到
+\begin_inset Formula $e$
+\end_inset
+
+指数上去，方便做关于
+\begin_inset Formula $s$
+\end_inset
+
+的积分。
+\end_layout
+
+\begin_layout Subsection
+Feynman参数
+\end_layout
+
+\begin_layout Standard
+在
+\begin_inset Formula $\alpha$
+\end_inset
+
+参数下，做换元
+\begin_inset Formula $\alpha_{l}=\eta\alpha_{l}^{\prime}$
+\end_inset
+
+，其中
+\begin_inset Formula $\sum_{l}\alpha_{l}^{\prime}=1$
+\end_inset
+
+，取
+\begin_inset Formula $\alpha_{1}^{\prime},\cdots,\alpha_{L-1}^{\prime},\eta$
+\end_inset
+
+为独立变量。
+\begin_inset Formula $\alpha_{L}=\eta\left(1-\sum_{l=1}^{L-1}\alpha_{l}^{\prime}\right)$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align}
+ & \int_{0}^{\infty}\left(\prod_{l}d\alpha_{l}\right)f\left(\alpha\right)\nonumber \\
+= & \int_{0}^{\infty}d\eta\int_{0}^{1}\left(\prod_{l=1}^{L-1}d\alpha_{l}^{\prime}\right)\left|\begin{array}{ccc}
+\frac{\partial\alpha_{1}}{\partial\alpha_{1}^{\prime}} & \cdots & \frac{\partial\alpha_{L}}{\partial\alpha_{1}^{\prime}}\\
+\vdots & \ddots & \vdots\\
+\frac{\partial\alpha_{1}}{\partial\alpha_{L-1}^{\prime}} & \cdots & \frac{\partial\alpha_{L}}{\partial\alpha_{L-1}^{\prime}}\\
+\frac{\partial\alpha_{1}}{\partial\eta} & \cdots & \frac{\partial\alpha_{L}}{\partial\eta}
+\end{array}\right|\left.f\left(\eta\alpha^{\prime}\right)\right|_{\alpha_{L}^{\prime}=1-\sum_{l=1}^{L-1}\alpha_{l}^{\prime}}\nonumber \\
+= & \int_{0}^{\infty}d\eta\int_{0}^{1}\left(\prod_{l}d\alpha_{l}^{\prime}\right)\delta\left(\sum_{l}\alpha_{l}^{\prime}-1\right)f\left(\eta\alpha^{\prime}\right){\color{red}\left|\begin{array}{cccc}
+\eta & \cdots & 0 & -\eta\\
+\vdots & \ddots & \vdots & \vdots\\
+0 & \cdots & \eta & -\eta\\
+\alpha_{1}^{\prime} & \cdots & \alpha_{L-1}^{\prime} & 1-\sum_{l=0}^{L-1}\alpha_{l}^{\prime}
+\end{array}\right|}\nonumber \\
+= & \int_{0}^{\infty}d\eta\cdot{\color{red}\eta^{L-1}}\int_{0}^{1}\left(\prod_{l}d\alpha_{l}\right)\delta\left(\sum_{l}\alpha_{l}-1\right)f\left(\eta\alpha\right)\label{eq:FP}
+\end{align}
+
+\end_inset
+
+行列式的计算方法是将前
+\begin_inset Formula $L-1$
+\end_inset
+
+列加到最后一列。
+\end_layout
+
+\begin_layout Subsection
+Cheng-Wu定理
+\end_layout
+
+\begin_layout Standard
+如果像上面那样令
+\begin_inset Formula $\alpha_{l}=\eta\alpha_{l}^{\prime}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+，但其中
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $\sum_{l\in\nu}\alpha_{l}^{\prime}=1$
+\end_inset
+
+，即只取
+\begin_inset Formula $\alpha_{l},l=1,\ldots,L$
+\end_inset
+
+的一部分做归一化。那么可取
+\begin_inset Formula $\alpha_{l\in\bar{\nu}}^{\prime},\alpha_{l\in\nu-\left\{ l_{0}\right\} }^{\prime},\eta$
+\end_inset
+
+作为独立变量，
+\begin_inset Formula $\alpha_{l_{0}}=\eta\left(1-\sum_{l\in\nu-\left\{ l_{0}\right\} }\alpha_{l}^{\prime}\right)$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align}
+ & \int_{0}^{\infty}\left(\prod_{l}d\alpha_{l}\right)f\left(\alpha\right)\nonumber \\
+= & \int_{0}^{\infty}d\eta\left(\prod_{l\in\bar{\nu}}d\alpha_{l}^{\prime}\right)\int_{0}^{1}\left(\prod_{l\in\nu-\left\{ l_{0}\right\} }d\alpha_{l}^{\prime}\right)\left|\begin{array}{ccccc}
+\frac{\partial\alpha_{l\in\bar{\nu}}}{\partial\alpha_{l\in\bar{\nu}}^{\prime}} & \cdots & \frac{\partial\alpha_{l\in\nu-\left\{ l_{0}\right\} }}{\partial\alpha_{l\in\bar{\nu}}^{\prime}} & \cdots & \frac{\partial\alpha_{l_{0}}}{\partial\alpha_{l\in\bar{\nu}}^{\prime}}\\
+\vdots & \ddots & \vdots & \ddots & \vdots\\
+\frac{\partial\alpha_{l\in\bar{\nu}}}{\partial\alpha_{l\in\nu-\left\{ l_{0}\right\} }^{\prime}} & \cdots & \frac{\partial\alpha_{l\in\nu-\left\{ l_{0}\right\} }}{\partial\alpha_{l\in\nu-\left\{ l_{0}\right\} }^{\prime}} & \cdots & \frac{\partial\alpha_{l_{0}}}{\partial\alpha_{l\in\nu-\left\{ l_{0}\right\} }^{\prime}}\\
+\vdots & \ddots & \vdots & \ddots & \vdots\\
+\frac{\partial\alpha_{l\in\bar{\nu}}}{\partial\eta} & \cdots & \frac{\partial\alpha_{l\in\nu-\left\{ l_{0}\right\} }}{\partial\eta} & \cdots & \frac{\partial\alpha_{l_{0}}}{\partial\eta}
+\end{array}\right|\left.f\left(\eta\alpha^{\prime}\right)\right|_{\alpha_{l_{0}}^{\prime}=1-\sum_{l\nu-\left\{ l_{0}\right\} }\alpha_{l}^{\prime}}\nonumber \\
+= & \int_{0}^{\infty}d\eta\left(\prod_{l\in\bar{\nu}}d\alpha_{l}^{\prime}\right)\int_{0}^{1}\left(\prod_{l\in\nu}d\alpha_{l}^{\prime}\right)\delta\left(\sum_{l\in\nu}\alpha_{l}^{\prime}-1\right)f\left(\eta\alpha^{\prime}\right)\left|\begin{array}{ccccc}
+{\color{red}\eta} & \cdots & 0 & \cdots & 0\\
+\vdots & {\color{red}\ddots} & \vdots & \ddots & \vdots\\
+0 & \cdots & {\color{red}\eta} & \cdots & {\color{red}-\eta}\\
+\vdots & \ddots & \vdots & {\color{red}\ddots} & {\color{red}\vdots}\\
+{\color{red}\alpha_{l\in\bar{\nu}}^{\prime}} & {\color{red}\cdots} & {\color{red}\alpha_{l\in\nu-\left\{ l_{0}\right\} }^{\prime}} & {\color{red}\cdots} & {\color{red}1-\sum_{l\in\nu-\left\{ l_{0}\right\} }\alpha_{l}^{\prime}}
+\end{array}\right|\nonumber \\
+= & \int_{0}^{\infty}d\eta\cdot{\color{red}\eta^{L-1}}\left(\prod_{l\in\bar{\nu}}d\alpha_{l}\right)\int_{0}^{1}\left(\prod_{l\in\nu}d\alpha_{l}\right)\delta\left(\sum_{l\in\nu}\alpha_{l}-1\right)f\left(\eta\alpha\right)\label{eq:CWT}
+\end{align}
+
+\end_inset
+
+行列式的计算方法是将
+\begin_inset Formula $l\in\nu-\left\{ l_{0}\right\} $
+\end_inset
+
+列加到最后一列。
+\end_layout
+
+\begin_layout Standard
+可以看到，
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CWT"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式与
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:FP"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式的区别
+\series bold
+仅
+\series default
+在于
+\begin_inset Formula $\delta$
+\end_inset
+
+函数中求和所包含的
+\begin_inset Formula $\alpha_{l}$
+\end_inset
+
+不同，以及不在
+\begin_inset Formula $\delta$
+\end_inset
+
+函数中出现的
+\begin_inset Formula $\alpha_{l}$
+\end_inset
+
+，其积分区间为
+\begin_inset Formula $\left(0,+\infty\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+圈动量积分前变为Feynman参数
+\end_layout
+
+\begin_layout Standard
+记
+\begin_inset Formula $a\equiv\sum_{l}a_{l}$
+\end_inset
+
+，
+\begin_inset Formula $s_{l}\sim s_{l}+i0$
+\end_inset
+
+，
+\begin_inset Formula 
+\begin{align*}
+\prod_{l}\frac{1}{s_{l}^{a_{l}}} & =\left(-i\right)^{a}\int_{0}^{\infty}\prod_{l}d\alpha_{l}\frac{1}{\Gamma\left(a_{l}\right)}\alpha_{l}^{a_{l}-1}e^{is_{l}\alpha_{l}}\\
+ & =\left(-i\right)^{a}{\color{red}\int_{0}^{\infty}d\eta\cdot\eta^{L-1}}\int_{0}^{1}\prod_{l}d\alpha_{l}\delta\left(\sum_{l}\alpha_{l}-1\right)\frac{1}{\Gamma\left(a_{l}\right)}{\color{red}\eta^{a-L}}\alpha_{l}^{a_{l}-1}{\color{red}e^{is_{l}\eta\alpha_{l}}}\\
+ & =\left(-i\right)^{a}\int_{0}^{1}\prod_{l}d\alpha_{l}\delta\left(\sum_{l}\alpha_{l}-1\right)\frac{1}{\Gamma\left(a_{l}\right)}\alpha_{l}^{a_{l}-1}{\color{red}\int_{0}^{\infty}d\eta\cdot\eta^{a-1}e^{is_{l}\eta\alpha_{l}}}\\
+ & =\left(-i\right)^{a}\int_{0}^{1}\prod_{l}d\alpha_{l}\delta\left(\sum_{l}\alpha_{l}-1\right)\frac{1}{\Gamma\left(a_{l}\right)}\alpha_{l}^{a_{l}-1}{\color{red}\frac{\Gamma\left(a\right)}{\left(-i\right)^{a}\left(\sum_{l}\alpha_{l}s_{l}\right)^{a}}}\\
+ & =\int_{0}^{1}\left(\prod_{l}d\alpha_{l}\right)\delta\left(\sum_{l}\alpha_{l}-1\right)\frac{\Gamma\left(a\right)}{\prod_{l}\Gamma\left(a_{l}\right)}\frac{\prod_{l}\alpha_{l}^{a_{l}-1}}{\left(\sum_{l}\alpha_{l}s_{l}\right)^{a}}
+\end{align*}
+
+\end_inset
+
+即得到费曼参数化。但现在我们
+\series bold
+不用
+\series default
+这种方法，而是用下面的办法。
+\end_layout
+
+\begin_layout Subsection
+圈动量积分后变为Feynman参数
+\end_layout
+
+\begin_layout Standard
+在
+\begin_inset Formula $\alpha$
+\end_inset
+
+参数下也可以先计算圈动量的积分。设
+\begin_inset Formula $k_{i},i=1,\ldots,h$
+\end_inset
+
+为圈动量，
+\begin_inset Formula $q_{i},i=1,\ldots,n$
+\end_inset
+
+为外线动量，则每条内线
+\begin_inset Formula $l$
+\end_inset
+
+上的动量为
+\begin_inset Formula 
+\[
+r_{l}=\sum_{i=1}^{h}e_{il}k_{i}+\sum_{i=1}^{n}d_{il}q_{i}
+\]
+
+\end_inset
+
+其中的系数按如下方式理解：从费曼图中选定一棵树，以及一条外线
+\begin_inset Formula $q_{j}$
+\end_inset
+
+作为根，
+\begin_inset Formula $k_{i}$
+\end_inset
+
+为不在树上的边的动量，如果边
+\begin_inset Formula $l$
+\end_inset
+
+在边
+\begin_inset Formula $k_{i}$
+\end_inset
+
+与树所围成的圈（是唯一的）中，则
+\begin_inset Formula $e_{il}=\pm1$
+\end_inset
+
+，否则为
+\begin_inset Formula $0$
+\end_inset
+
+；如果边
+\begin_inset Formula $l$
+\end_inset
+
+在外线
+\begin_inset Formula $q_{i}$
+\end_inset
+
+到根
+\begin_inset Formula $q_{j}$
+\end_inset
+
+的路径（是唯一的）上，则
+\begin_inset Formula $d_{il}=\pm1$
+\end_inset
+
+，否则
+\begin_inset Formula $d_{il}=0$
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align}
+F_{\Gamma}\left(q;d\right) & =\int dk\prod_{l}\frac{Z_{l}\left(r_{l}\right)}{\left[Q_{l}\left(k;q\right)\right]^{a_{l}}}\nonumber \\
+ & =\int dk\left.\prod_{l}Z_{l}\left(\frac{1}{2i}\frac{\partial}{\partial u_{l}}\right)e^{2i\sum_{l}u_{l}\cdot r_{l}}\right|_{u_{l}=0}\frac{\left(-i\right)^{a}}{\prod_{l}\Gamma\left(a_{l}\right)}\int_{0}^{\infty}\prod_{l}d\alpha_{l}\alpha_{l}^{a_{l}-1}e^{i\sum_{l}Q_{l}\alpha_{l}}\nonumber \\
+ & =\frac{\left(-i\right)^{a}}{\prod_{l}\Gamma\left(a_{l}\right)}\left.\prod_{l}Z_{l}\left(\frac{1}{2i}\frac{\partial}{\partial u_{l}}\right)\right|_{u_{l}=0}\int_{0}^{\infty}\prod_{l}d\alpha_{l}\alpha_{l}^{a_{l}-1}{\color{red}\int dke^{iQ\left(k;q,\alpha,u\right)}}\label{eq:AR}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula $Q_{l}\sim Q_{l}+i0,\:Q\sim Q+i0$
+\end_inset
+
+。如果
+\begin_inset Formula $Q_{l}$
+\end_inset
+
+是关于内线动量
+\begin_inset Formula $r_{l}$
+\end_inset
+
+的缩并式的二次型（即不包含
+\begin_inset Formula $\left(q\cdot r\right)\left(q\cdot r\right)$
+\end_inset
+
+这样的项），那么
+\begin_inset Formula $Q$
+\end_inset
+
+也是关于圈动量
+\begin_inset Formula $k$
+\end_inset
+
+的这样的二次型：
+\begin_inset Formula 
+\begin{align*}
+Q\left(k;q,\alpha,u\right) & =\sum_{ij}A_{ij}\left(\alpha\right)k_{i}\cdot k_{j}+\sum_{i}b_{i}\left(q;\alpha,u\right)\cdot k_{i}+c\left(q;\alpha,u\right)
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $A_{ij}\left(\alpha\right)$
+\end_inset
+
+为
+\begin_inset Formula $h\times h$
+\end_inset
+
+阶矩阵，矩阵元是
+\begin_inset Formula $\alpha$
+\end_inset
+
+的线性齐次函数。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[breakable]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+利用著名的高斯积分（
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+，
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+为实对称矩阵）
+\begin_inset Formula 
+\begin{align*}
+\int_{-\infty}^{+\infty}dxe^{iax^{2}} & =\int_{-\infty\sqrt{-ia}}^{+\infty\sqrt{-ia}}\frac{dy}{\sqrt{-ia}}e^{-y^{2}}\\
+ & =\frac{1}{\sqrt{-ia}}\int_{-\infty}^{+\infty}dye^{-y^{2}}=\sqrt{\frac{i\pi}{a}}\\
+ & =\begin{cases}
+{\displaystyle \frac{\sqrt{\pi}}{\sqrt{a}}e^{i\pi/4}} & a>0\\
+{\displaystyle \frac{\sqrt{\pi}}{\sqrt{-a}}}e^{-i\pi/4} & a<0
+\end{cases}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\sqrt{\bullet}$
+\end_inset
+
+取主值（即
+\begin_inset Formula $a>0$
+\end_inset
+
+时
+\begin_inset Formula $\arg\sqrt{-ia}=-\frac{\pi}{4}$
+\end_inset
+
+，
+\begin_inset Formula $a<0$
+\end_inset
+
+时
+\begin_inset Formula $\arg\sqrt{-ia}=\frac{\pi}{4}$
+\end_inset
+
+）
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+如果
+\begin_inset Formula $\sqrt{\bullet}$
+\end_inset
+
+不取主值，积分围道转回实轴时变为从
+\begin_inset Formula $+\infty$
+\end_inset
+
+积到
+\begin_inset Formula $-\infty$
+\end_inset
+
+，翻转过来会出个负号，与
+\begin_inset Formula $\sqrt{\bullet}$
+\end_inset
+
+非主值产生的负号相抵消，结果是一样的。
+\end_layout
+
+\end_inset
+
+。
+\begin_inset Formula 
+\begin{align*}
+ & \int_{-\infty}^{+\infty}d\boldsymbol{x}\exp i\left(\boldsymbol{x}^{\mathrm{T}}\mathbf{A}\boldsymbol{x}+\boldsymbol{b}^{\mathrm{T}}\boldsymbol{x}+c\right)\\
+= & \int_{-\infty}^{+\infty}d\boldsymbol{x}\exp i\left[\left(\boldsymbol{x}-\frac{1}{2}\mathbf{A}^{-1}\boldsymbol{b}\right)^{\mathrm{T}}\mathbf{A}\left(\boldsymbol{x}-\frac{1}{2}\mathbf{A}^{-1}\boldsymbol{b}\right)-\frac{1}{4}\boldsymbol{b}^{\mathrm{T}}\mathbf{A}^{-1}\boldsymbol{b}+c\right]\\
+= & \int_{-\infty}^{+\infty}d\boldsymbol{y}\exp i\left[\boldsymbol{y}^{\mathrm{T}}\boldsymbol{\Lambda}\boldsymbol{y}-\frac{1}{4}\boldsymbol{b}^{\mathrm{T}}\mathbf{A}^{-1}\boldsymbol{b}+c\right]\\
+= & e^{i\pi\left(p-q\right)/4}\sqrt{\frac{\pi^{n}}{\left|\det\mathbf{A}\right|}}\exp i\left[-\frac{1}{4}\boldsymbol{b}^{\mathrm{T}}\mathbf{A}^{-1}\boldsymbol{b}+c\right]
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\boldsymbol{y}=\mathbf{O}\left(\boldsymbol{x}-\frac{1}{2}\mathbf{A}^{-1}\boldsymbol{b}\right)$
+\end_inset
+
+，实正交矩阵
+\begin_inset Formula $\mathbf{O}$
+\end_inset
+
+将
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+对角化：
+\begin_inset Formula $\mathbf{O}\mathbf{A}\mathbf{O}^{\mathrm{T}}=\boldsymbol{\Lambda}$
+\end_inset
+
+，
+\begin_inset Formula $\left(p,q\right)$
+\end_inset
+
+为矩阵
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+的惯性指数。
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+矩阵
+\begin_inset Formula $\mathbf{A}=A_{ij}\left(\alpha\right)\times_{\text{kron.}}g_{\mu\nu}$
+\end_inset
+
+，因此
+\begin_inset Formula $\left|\det\mathbf{A}\right|=\left|\det A_{ij}\right|^{d}\left|\det g_{\mu\nu}\right|^{h}=\left|\det A_{ij}\right|^{d}$
+\end_inset
+
+，
+\begin_inset Formula $\left(p,q\right)=\begin{cases}
+\left(h,\left(d-1\right)h\right) & A_{ij}\text{正定}\\
+\left(\left(d-1\right)h,h\right) & A_{ij}\text{负定}
+\end{cases}$
+\end_inset
+
+，
+\begin_inset Formula $n=dh$
+\end_inset
+
+，
+\begin_inset Formula $\mathbf{A}^{-1}=A_{ij}^{-1}\times_{\text{kron.}}g^{\mu\nu}$
+\end_inset
+
+可得
+\begin_inset Formula 
+\[
+{\color{red}\int dk\exp iQ\left(k;q,\alpha,u\right)}=e^{\pm_{1}i\pi\left(2-d\right)h/4}\pi^{dh/2}\left|\det A_{ij}\right|^{-d/2}\exp i\left(-\frac{1}{4}A_{ij}^{-1}b_{i}\cdot b_{j}+c\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula $\pm_{1}$
+\end_inset
+
+分别对应
+\begin_inset Formula $A_{ij}$
+\end_inset
+
+正定和负定。
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:AR"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式对于分子平庸（
+\begin_inset Formula $Z=1$
+\end_inset
+
+）的情况，有：
+\begin_inset Formula 
+\begin{align}
+F_{\Gamma}\left(q;d\right) & =\frac{\left(-i\right)^{a}e^{\pm_{1}i\pi\left(2-d\right)h/4}\pi^{dh/2}}{\prod_{l}\Gamma\left(a_{l}\right)}{\color{red}\int_{0}^{\infty}\prod_{l}d\alpha_{l}}\alpha_{l}^{a_{l}-1}\left|\det A_{ij}\right|^{-d/2}\exp\left[-i{\color{blue}\left(\frac{1}{4}A_{ij}^{-1}b_{i}\cdot b_{j}-c\right)}\right]\nonumber \\
+ & =\cdots{\color{red}\int_{0}^{\infty}d\eta\cdot\underline{\eta^{L-1}}\int_{0}^{1}\left(\prod_{l}d\alpha_{l}\right)\delta\left(\sum_{l}\alpha_{l}-1\right)}\underline{\eta^{a-L}}\alpha_{l}^{a_{l}-1}\underline{\eta^{-dh/2}}\left|\det A_{ij}\right|^{-d/2}\underline{\exp\left[-i{\color{blue}\eta Q^{\prime}\left(q,\alpha\right)}\right]}\nonumber \\
+ & =\cdots\int_{0}^{1}\left(\prod_{l}d\alpha_{l}\right)\delta\left(\sum_{l}\alpha_{l}-1\right)\left|\det A_{ij}\right|^{-d/2}\left(\prod_{l}\alpha_{l}^{a_{l}-1}\right)\underline{\int_{0}^{\infty}d\eta\cdot\eta^{a-dh/2-1}\exp\left[-i\eta Q^{\prime}\left(q,\alpha\right)\right]}\nonumber \\
+ & =\frac{{\color{teal}\left(-i\right)^{a}e^{\pm_{1}i\pi\left(2-d\right)h/4}}\pi^{dh/2}}{\prod_{l}\Gamma\left(a_{l}\right)}\int_{0}^{1}\left(\prod_{l}d\alpha_{l}\right)\delta\left(\sum_{l}\alpha_{l}-1\right)\nonumber \\
+ & \qquad\times\left|\det A_{ij}\right|^{-d/2}\left(\prod_{l}\alpha_{l}^{a_{l}-1}\right)\underline{\frac{\Gamma\left(a-dh/2\right)}{{\color{teal}\left(\pm_{2}i\right)^{a-dh/2}}\left[\pm_{2}Q^{\prime}\left(q,\alpha\right)\right]^{a-dh/2}}}\nonumber \\
+ & ={\color{teal}i^{-a\pm_{1}\left(h-dh/2\right)\mp_{2}\left(a-dh/2\right)}}\pi^{dh/2}\frac{\Gamma\left(a-dh/2\right)}{\prod_{l}\Gamma\left(a_{l}\right)}\int_{0}^{1}\left(\prod_{l}d\alpha_{l}\right)\delta\left(\sum_{l}\alpha_{l}-1\right)\frac{\left|\det A_{ij}\right|^{-d/2}\prod_{l}\alpha_{l}^{a_{l}-1}}{\left[\pm_{2}Q^{\prime}\left(q,\alpha\right)\right]^{a-dh/2}}\label{eq:ARinFP}
+\end{align}
+
+\end_inset
+
+上式中的
+\begin_inset Formula $\pm_{2}$
+\end_inset
+
+是可以随意选择的。由于
+\begin_inset Formula $Q\sim Q+i0$
+\end_inset
+
+，其
+\begin_inset Formula $+i0$
+\end_inset
+
+贡献到
+\begin_inset Formula $c$
+\end_inset
+
+中，而
+\begin_inset Formula $Q^{\prime}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+中
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+的是
+\begin_inset Formula $-c$
+\end_inset
+
+，因此
+\begin_inset Formula $Q^{\prime}\sim Q^{\prime}-i0$
+\end_inset
+
+，下划线的分母本来是
+\begin_inset Formula $\left(iQ^{\prime}\right)^{a-dh/2}$
+\end_inset
+
+取主值，而分解后的
+\begin_inset Formula ${\color{teal}\left(\pm_{2}i\right)^{a-dh/2}}$
+\end_inset
+
+取主值，则
+\begin_inset Formula $\left[\pm_{2}Q^{\prime}\left(q,\alpha\right)\right]^{a-dh/2}$
+\end_inset
+
+刚好按
+\begin_inset Formula $\left[\pm_{2}\left(Q^{\prime}\left(q,\alpha\right)-i0\right)\right]^{a-dh/2}$
+\end_inset
+
+取主值理解。
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $Q_{l}\sim Q_{l}-i0$
+\end_inset
+
+的情况，无需重复上面的讨论，只需在
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ARinFP"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式中令
+\begin_inset Formula $i\rightarrow-i$
+\end_inset
+
+即可：
+\begin_inset Formula 
+\begin{equation}
+F_{\Gamma}\left(q;d\right)={\color{teal}i^{a\mp_{1}\left(h-dh/2\right)\pm_{2}\left(a-dh/2\right)}}\pi^{dh/2}\frac{\Gamma\left(a-dh/2\right)}{\prod_{l}\Gamma\left(a_{l}\right)}\int_{0}^{1}\left(\prod_{l}d\alpha_{l}\right)\delta\left(\sum_{l}\alpha_{l}-1\right)\frac{\left|\det A_{ij}\right|^{-d/2}\prod_{l}\alpha_{l}^{a_{l}-1}}{\left[\pm_{2}Q^{\prime}\left(q,\alpha\right)\right]^{a-dh/2}}\label{eq:ARinFP-1}
+\end{equation}
+
+\end_inset
+
+这里
+\begin_inset Formula $\left[\pm_{2}Q^{\prime}\left(q,\alpha\right)\right]^{a-dh/2}$
+\end_inset
+
+应按
+\begin_inset Formula $\left[\pm_{2}\left(Q^{\prime}\left(q,\alpha\right)+i0\right)\right]^{a-dh/2}$
+\end_inset
+
+取主值理解。
+\end_layout
+
+\begin_layout Standard
+对于欧氏空间的情况，有
+\begin_inset Formula ${\color{teal}\pm_{1}\left(2-d\right)h}\rightarrow{\color{teal}\pm_{1}dh}$
+\end_inset
+
+，最后得到前面的因子为
+\begin_inset Formula ${\color{teal}i^{-a\pm_{1}dh/2\mp_{2}\left(a-dh/2\right)}}$
+\end_inset
+
+（
+\begin_inset Formula $Q\sim Q+i0$
+\end_inset
+
+），
+\begin_inset Formula ${\color{teal}i^{a\mp_{1}dh/2\pm_{2}\left(a-dh/2\right)}}$
+\end_inset
+
+（
+\begin_inset Formula $Q\sim Q-i0$
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Standard
+综上，对于分子平庸的情况，只需按照如下步骤：
+\begin_inset Formula 
+\[
+Q\left(k;q,\alpha\right)=\sum_{l}Q_{l}\alpha_{l}\rightarrow\begin{cases}
+A_{ij}\\
+b_{i}\\
+c
+\end{cases}\rightarrow\begin{cases}
+Q^{\prime}\left(q,\alpha\right)=\frac{1}{4}A_{ij}^{-1}b_{i}\cdot b_{j}-c\\
+\det A_{ij}
+\end{cases}\rightarrow\text{\eqref{eq:ARinFP}\eqref{eq:ARinFP-1}式}
+\]
+
+\end_inset
+
+进行计算即可。
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:PF"
+
+\end_inset
+
+Partial Fractions
+\end_layout
+
+\begin_layout Standard
+Partial fractions分解方法能帮助我们将一些传播子化成更简单的形式：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{\left(x+x_{1}\right)^{a_{1}}\left(x+x_{2}\right)^{a_{2}}} & =\sum_{i=0}^{a_{1}-1}\left(\begin{array}{c}
+a_{2}-1+i\\
+a_{2}-1
+\end{array}\right)\frac{\left(-1\right)^{i}}{\left(x_{2}-x_{1}\right)^{a_{2}+i}\left(x+x_{1}\right)^{a_{1}-i}}\\
+ & \quad+\sum_{i=0}^{a_{2}-1}\left(\begin{array}{c}
+a_{1}-1+i\\
+a_{1}-1
+\end{array}\right)\frac{\left(-1\right)^{a_{1}}}{\left(x_{2}-x_{1}\right)^{a_{1}+i}\left(x+x_{2}\right)^{a_{2}-i}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+证明：数学归纳法。（只在
+\begin_inset Formula $a_{1},a_{2}$
+\end_inset
+
+为非负整数时成立）
+\end_layout
+
+\begin_layout Section
+例子
+\end_layout
+
+\begin_layout Standard
+下面这些例子
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+literal "false"
+
+\end_inset
+
+我只算了strategy of regions展开的领头阶，对于例2的hard region，只算出了
+\begin_inset Formula $J_{+}$
+\end_inset
+
+部分。所有在文中没有出现的计算过程，
+\series bold
+均可在我的程序“
+\family typewriter
+AP&IBP.nb
+\family default
+”中找到
+\series default
+。
+\end_layout
+
+\begin_layout Subsection
+单圈顶角积分
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (O) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A) at (3,1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B) at (3,-1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (C) at (-0.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A1) at ($(O)!0.6!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B1) at ($(O)!0.6!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion] (B) node[above] {$p_2$} -- (O);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion] (O) -- (A) node[below]{$p_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scalar] (C) -- node[below]{$q$} (O);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (A1) -- node[right,xshift=8pt]{$p-k$} (B1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[-Stealth] ($(A1)!0.7!(B1)+(7pt,0)$) -- ($(A1)!0.3!(B1)+(7pt,0)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example 1
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ex1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ex1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+。运动学：
+\begin_inset Formula $p_{1}^{2}=p_{2}^{2}=m^{2}$
+\end_inset
+
+。定义
+\begin_inset Formula $p=\left(p_{1}-p_{2}\right)/2$
+\end_inset
+
+，注意这里圈动量
+\begin_inset Formula $k$
+\end_inset
+
+选取具有技巧性。圈积分为
+\begin_inset Formula 
+\begin{align*}
+I_{1} & \equiv\int\frac{\left[dk\right]}{\left[\left(p_{1}-p+k\right)^{2}-m^{2}\right]\left[\left(p_{2}+p-k\right)^{2}-m^{2}\right]\left(p-k\right)^{2}}\\
+ & =\int\frac{\left[dk\right]}{\left(k^{2}+q\cdot k+q^{2}/4-m^{2}\right)\left(k^{2}-q\cdot k+q^{2}/4-m^{2}\right)\left(p-k\right)^{2}}
+\end{align*}
+
+\end_inset
+
+其中
+\begin_inset Formula $\left[dk\right]\equiv e^{\epsilon\gamma_{E}}d^{d}k/\left(i\pi^{d/2}\right),\:d=4-2\epsilon$
+\end_inset
+
+。定义
+\begin_inset Formula $y\equiv m^{2}-q^{2}/4=p^{2},\:\hat{y}=y/q^{2}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+I_{1}=\int\frac{\left[dk\right]}{\left(k^{2}+q\cdot k-y\right)\left(k^{2}-q\cdot k-y\right)\left(p-k\right)^{2}}
+\]
+
+\end_inset
+
+现考虑质心系
+\begin_inset Formula $q=\left(q_{0},\mathbf{0}\right)$
+\end_inset
+
+，在阈值以上附近，有
+\begin_inset Formula $y<0$
+\end_inset
+
+（注意），
+\begin_inset Formula $\left|y\right|\ll q$
+\end_inset
+
+（
+\begin_inset Formula $q$
+\end_inset
+
+有时也用来表示
+\begin_inset Formula $\sqrt{q^{2}}=q_{0}$
+\end_inset
+
+，后面比较scale的时候将绝对值省去不写）。以
+\begin_inset Formula $\lambda\sim\sqrt{y}/q\ll1$
+\end_inset
+
+做为展开参数，可以按圈动量
+\begin_inset Formula $k$
+\end_inset
+
+相对于
+\begin_inset Formula $q$
+\end_inset
+
+的不同scale将积分区域话分成几个区域。一般地，这种方法可以不只是考虑
+\begin_inset Formula $k$
+\end_inset
+
+而是
+\begin_inset Formula $k$
+\end_inset
+
+的某个函数相对于
+\begin_inset Formula $q$
+\end_inset
+
+是小量，这样可以得出很多区域，但大多数区域的贡献都是
+\begin_inset Formula $0$
+\end_inset
+
+。在本例中，除了接下来要考虑几个区域外其余的贡献均为
+\begin_inset Formula $0$
+\end_inset
+
+（我还不知道怎么证）。
+\end_layout
+
+\begin_layout Standard
+注意：在划分好区域后，每个区域内（事实上，必须）将被积函数按相应的
+\begin_inset Formula $\lambda$
+\end_inset
+
+幂次做展开，但积分区域是不变的（还是整个动量空间！）。关于这一点，应该这么理解，首先“物理地”划分区域其实是需要设置cut-off 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+的，
+\begin_inset Formula $\Lambda$
+\end_inset
+
+应介于两个scale之间，这样在两个区域中就可以安全地做
+\begin_inset Formula $\lambda$
+\end_inset
+
+展开了（不用担心超出收敛域），这样展开后积分的结果包含两个部分：
+\color red
+
+\begin_inset Formula $A$
+\end_inset
+
+部分，
+\begin_inset Formula $\Lambda$
+\end_inset
+
+有关部分，形式是若干
+\begin_inset Formula $\Lambda^{a+b\epsilon}$
+\end_inset
+
+的和
+\color inherit
+；
+\color blue
+
+\begin_inset Formula $B$
+\end_inset
+
+部分，
+\begin_inset Formula $\Lambda$
+\end_inset
+
+无关部分，只是
+\begin_inset Formula $\epsilon$
+\end_inset
+
+的函数
+\color inherit
+。现在strategy of region这个方法要我们算全空间的积分，就是说要令
+\begin_inset Formula $\Lambda\rightarrow0\;\text{or}\;\infty$
+\end_inset
+
+（取决于cut-off的性质），这时的
+\color red
+
+\begin_inset Formula $A$
+\end_inset
+
+部分
+\color inherit
+就会变成
+\begin_inset Formula $\Lambda^{\text{pos}}\stackrel{\Lambda\rightarrow0}{\longrightarrow}0\;\text{or}\;\Lambda^{\text{neg}}\stackrel{\Lambda\rightarrow\infty}{\longrightarrow}0$
+\end_inset
+
+而消失掉。你可能要问了，也有可能会有
+\begin_inset Formula $\Lambda^{\text{pos}}\stackrel{\Lambda\rightarrow\infty}{\longrightarrow}\infty$
+\end_inset
+
+之类的情况啊，在这种情况下如果按正常方式理解其实即使维数正规化的积分也是发散的，不过这没关系，我们可以将
+\begin_inset Formula $\epsilon$
+\end_inset
+
+解析延拓到所有
+\begin_inset Formula $\Lambda^{\text{pos}}$
+\end_inset
+
+都变成
+\begin_inset Formula $\Lambda^{\text{neg}}$
+\end_inset
+
+为止，这样再取全空间积分（
+\begin_inset Formula $\Lambda\rightarrow\infty$
+\end_inset
+
+）
+\color red
+
+\begin_inset Formula $A$
+\end_inset
+
+部分
+\color inherit
+就变为
+\begin_inset Formula $0$
+\end_inset
+
+了，最后积分的结果实际上只包含
+\color blue
+
+\begin_inset Formula $B$
+\end_inset
+
+部分
+\color inherit
+，而由于
+\color blue
+
+\begin_inset Formula $B$
+\end_inset
+
+部分
+\color inherit
+的解析（半纯）性，再把
+\begin_inset Formula $\epsilon$
+\end_inset
+
+取回原来的值就能得到原来的
+\color blue
+
+\begin_inset Formula $B$
+\end_inset
+
+部分
+\color inherit
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+但如果不能算出关于
+\begin_inset Formula $\epsilon$
+\end_inset
+
+的精确表达式，只能算出
+\begin_inset Formula $\epsilon$
+\end_inset
+
+展开的前几项，则做不了解析延拓。
+\end_layout
+
+\end_inset
+
+。总之这一波操作下来全空间积分的结果正好就只包含
+\color blue
+
+\begin_inset Formula $B$
+\end_inset
+
+部分
+\color inherit
+，而
+\color red
+
+\begin_inset Formula $A$
+\end_inset
+
+部分
+\color inherit
+被扔掉了。下面是要点：各个区域的带cut-off的积分结果加起来，
+\color red
+
+\begin_inset Formula $A$
+\end_inset
+
+部分
+\color inherit
+本来就是相互抵消的，这是因为所有区域加起来本来就不会依赖cut-off 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+。因此，我们对各个区域算出
+\color blue
+
+\begin_inset Formula $B$
+\end_inset
+
+部分
+\color inherit
+，再将
+\color blue
+
+\begin_inset Formula $B$
+\end_inset
+
+部分
+\color inherit
+加起来，和算带cut-off的积分再加起来结果是一样的（但单取某一部分算的结果不一样）。最后再提一下，对于无标度积分，其结果中
+\color blue
+
+\begin_inset Formula $B$
+\end_inset
+
+部分
+\color inherit
+就为
+\begin_inset Formula $0$
+\end_inset
+
+，而
+\color red
+
+\begin_inset Formula $A$
+\end_inset
+
+部分
+\color inherit
+就包含刚刚提到的
+\begin_inset Formula $\Lambda^{\text{pos}}\stackrel{\Lambda\rightarrow\infty}{\longrightarrow}\infty$
+\end_inset
+
+这样的项，这就是为什么它们看起来发散却被当作
+\begin_inset Formula $0$
+\end_inset
+
+的原因。以上只是我的一种理解，不是证明（有限区域的维数正规化就有点subtle，解析正规化
+\begin_inset Formula $a_{i}\rightarrow\lambda_{i}$
+\end_inset
+
+可能会好些）。
+\end_layout
+
+\begin_layout Subsubsection
+Hard region & soft region
+\end_layout
+
+\begin_layout Standard
+首先显而易见的是下面这两个区域
+\begin_inset Formula 
+\begin{align*}
+\text{hard: } & k_{0}\sim q,\:\mathbf{k}\sim q\\
+\text{soft: } & k_{0}\sim\sqrt{y}\sim\lambda q,\:\mathbf{k}\sim\sqrt{y}\sim\lambda q
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在hard region中，积分按
+\begin_inset Formula $y\ll q^{2}\sim k^{2}$
+\end_inset
+
+展开
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{1}^{h}=\int\frac{\left[dk\right]}{\left(k^{2}+q\cdot k\right)\left(k^{2}-q\cdot k\right)k^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+通过程序算得
+\begin_inset Formula 
+\[
+I_{1}^{h}=-e^{\epsilon\gamma_{\text{E}}}\frac{2^{1+2\epsilon}}{\left(q^{2}\right)^{1+\epsilon}}\frac{\Gamma\left(\epsilon\right)}{1+2\epsilon}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在soft region中，有
+\begin_inset Formula $k_{0}\sim\sqrt{y},\:\mathbf{k}\sim\sqrt{y}\Rightarrow k^{2}-y\ll q\cdot k$
+\end_inset
+
+，依此展开
+\begin_inset Formula 
+\begin{align*}
+I_{1}^{s} & =\int\frac{\left[dk\right]}{\left(q\cdot k\right)\left(-q\cdot k\right)\left(p-k\right)^{2}}=0
+\end{align*}
+
+\end_inset
+
+其中上式对
+\begin_inset Formula $k$
+\end_inset
+
+做平移
+\begin_inset Formula $k\rightarrow k+p$
+\end_inset
+
+可化为无标度积分，因此为
+\begin_inset Formula $0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsubsection
+Potential region
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $q_{0}k_{0}\sim y$
+\end_inset
+
+即
+\begin_inset Formula $k_{0}\sim y/q\sim\lambda^{2}q$
+\end_inset
+
+，而
+\begin_inset Formula $\mathbf{k}\sim\lambda q$
+\end_inset
+
+的情况，这时
+\begin_inset Formula $k^{2}-y\sim q\cdot k$
+\end_inset
+
+，因此soft region的展开方式失效。这时需要单独分出一个potential region，按
+\begin_inset Formula $k_{0}\sim y/q\ll\sqrt{y}$
+\end_inset
+
+展开
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{k^{2}\pm q\cdot k-y} & =\frac{1}{k_{0}^{2}-\mathbf{k}^{2}\pm q_{0}k_{0}-y}=\frac{1}{-\mathbf{k}^{2}\pm q_{0}k_{0}-y}+\cdots\\
+\frac{1}{\left(p-k\right)^{2}} & =\frac{1}{k_{0}^{2}-\left(\mathbf{p}-\mathbf{k}\right)^{2}}=\frac{1}{-\left(\mathbf{p}-\mathbf{k}\right)^{2}}+\cdots
+\end{align*}
+
+\end_inset
+
+得到（对
+\begin_inset Formula $k_{0}$
+\end_inset
+
+积分，两个极点分别在围道的两侧，任取其中一个极点的留数即可，不过要注意围道的方向）
+\begin_inset Formula 
+\begin{align}
+I_{1}^{p} & =\int\frac{\left[dk\right]}{\left(-\mathbf{k}^{2}+q_{0}k_{0}-y\right)\left(-\mathbf{k}^{2}-q_{0}k_{0}-y\right)\left[-\left(\mathbf{p}-\mathbf{k}\right)^{2}\right]}\nonumber \\
+ & =-\int\frac{e^{\epsilon\gamma_{\text{E}}}d^{d-1}k}{i\pi^{d/2}}2\pi i\frac{1}{\left(-2\mathbf{k}^{2}-2y\right)\left(-q_{0}\right)\left(\mathbf{p}-\mathbf{k}\right)^{2}}\nonumber \\
+ & =\frac{-1}{q}e^{\epsilon\gamma_{\text{E}}}\int\frac{d^{d-1}k}{\pi^{d/2-1}}\frac{1}{\left(\mathbf{k}^{2}+y\right)\left(\mathbf{p}-\mathbf{k}\right)^{2}}\label{eq:ex1-Ip}
+\end{align}
+
+\end_inset
+
+由程序计算得
+\begin_inset Formula 
+\[
+I_{1}^{p}=e^{\epsilon\gamma_{\text{E}}}\frac{-ie^{-i\pi\epsilon}}{q}\left(-y\right)^{-\frac{1}{2}-\epsilon}\frac{\sqrt{\pi}\Gamma\left(\frac{1}{2}+\epsilon\right)}{2\epsilon}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula $\left(-y\right)^{-\frac{1}{2}-\epsilon}=\left(-y-i0\right)^{-\frac{1}{2}-\epsilon}=\left(-1-i0\right)^{-\frac{1}{2}-\epsilon}\left(y+i0\right)^{-\frac{1}{2}-\epsilon}=ie^{i\pi\epsilon}y^{-\frac{1}{2}-\epsilon}$
+\end_inset
+
+，取主值。
+\begin_inset Formula 
+\[
+I_{1}^{p}=e^{\epsilon\gamma_{\text{E}}}\frac{1}{qy^{1/2+\epsilon}}\frac{\sqrt{\pi}\Gamma\left(\frac{1}{2}+\epsilon\right)}{2\epsilon}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+其他区域
+\end_layout
+
+\begin_layout Standard
+如果按各个传播子的pole：
+\begin_inset Formula $\left(p_{1,2}-p+k\right)^{2}-m^{2},\left(p-k\right)^{2}\sim y\:\text{or}\;y^{2}/q^{2}\:\text{or}\;0$
+\end_inset
+
+之类的情况划分区域，实际上和上面的各区域是交叉的，即上面各区域都可能传播子取到pole，在本例中这些pole对应的区域给出的贡献将化为无标度积分，因而为
+\begin_inset Formula $0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsubsection
+精确解
+\end_layout
+
+\begin_layout Standard
+见程序。
+\end_layout
+
+\begin_layout Subsection
+两圈两点积分
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A) at (-2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B) at (-1.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (C) at (1.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (D) at (2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (E) at (0,1.2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (F) at (0,-1.2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scalar] (A) -- node[below] {$q$} (B);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scalar] (C) -- (D);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion=0.7] (B) ..
+ controls (-1.4,0.8) and (-0.6,1.2) ..node[left]{$q/2+k$} (E);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (E) ..
+ controls (0.6,1.2) and (1.4,0.8) ..
+ (C);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (B) ..
+ controls (-1.4,-0.8) and (-0.6,-1.2) ..
+ (F);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[antifermion=0.3] (F) ..
+ controls (0.6,-1.2) and (1.4,-0.8) ..node[right]{$q/2-l$} (C);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw [photon] (E) -- node[right] {$k-l$} (F);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example 2
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ex2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ex2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+所示，其中
+\begin_inset Formula $q,y$
+\end_inset
+
+的定义与例1一致，
+\begin_inset Formula $k,l$
+\end_inset
+
+分别为左边和右边的圈动量：
+\begin_inset Formula 
+\[
+I_{2}=\int\frac{\left[dk\right]\left[dl\right]}{\left(k^{2}+q\cdot k-y\right)\left(k^{2}-q\cdot k-y\right)\left(l^{2}+q\cdot l-y\right)\left(l^{2}-q\cdot l-y\right)\left(k-l\right)^{2}}
+\]
+
+\end_inset
+
+可按圈动量的hard(
+\begin_inset Formula $k\sim q$
+\end_inset
+
+),soft(
+\begin_inset Formula $k\sim\lambda q$
+\end_inset
+
+),potential(
+\begin_inset Formula $k_{0}\sim\lambda^{2}q,\mathbf{k}\sim\lambda q$
+\end_inset
+
+),ultra-soft(
+\begin_inset Formula $k_{0}\sim\lambda^{2}q,\mathbf{k}\sim\lambda^{2}q$
+\end_inset
+
+)来划分区域，其中圈动量可以是除了上述
+\begin_inset Formula $k,l$
+\end_inset
+
+外的别的选取方式，这就有很强的任意性。但最后非零的只有少数几个区域。
+\end_layout
+
+\begin_layout Subsubsection
+Hard-hard region
+\end_layout
+
+\begin_layout Standard
+此区域中按
+\begin_inset Formula $y\ll q^{2}\sim k^{2}\sim l^{2}$
+\end_inset
+
+展开：
+\begin_inset Formula 
+\[
+I_{2}=\int\frac{\left[dk\right]\left[dl\right]}{\left(k^{2}+q\cdot k\right)\left(k^{2}-q\cdot k\right)\left(l^{2}+q\cdot l\right)\left(l^{2}-q\cdot l\right)\left(k-l\right)^{2}}
+\]
+
+\end_inset
+
+通过partial fractions分解，可将分母化成（理论见
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+节，实现方法见程序）
+\begin_inset Formula 
+\[
+J_{\pm}\left(q;a_{1},\ldots,a_{5}\right)=\int\frac{\left[dk\right]\left[dl\right]}{\left(-k^{2}\right)^{a_{1}}\left(-l^{2}\right)^{a_{2}}\left[-\left(k-l\right)^{2}\right]^{a_{3}}\left[-\left(k^{2}+q\cdot k\right)\right]^{a_{4}}\left[-\left(l^{2}\pm q\cdot l\right)\right]^{a_{5}}}
+\]
+
+\end_inset
+
+的线性组合，结果为
+\begin_inset Formula 
+\[
+I_{2}^{h}=-\frac{1}{2}J_{+}\left(q;1,1,1,1,1\right)-\frac{1}{2}J_{-}\left(q;1,1,1,1,1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+利用IBP关系，费曼积分的被积函数在
+\begin_inset Formula $\frac{\partial}{\partial p_{1}}\cdot p_{2}$
+\end_inset
+
+（
+\begin_inset Formula $p_{1}\in\left\{ k,l\right\} ,p_{2}\in\left\{ k,l,q\right\} $
+\end_inset
+
+）的作用下积分为
+\begin_inset Formula $0$
+\end_inset
+
+，其中计算时用到了：
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial k}\frac{1}{\left(-k^{2}\right)^{a_{1}}} & =\frac{-a_{1}\left(-2k\right)}{\left(-k^{2}\right)^{a_{1}+1}}=\frac{2a_{1}k}{\left(-k^{2}\right)^{a_{1}+1}}\\
+\frac{\partial}{\partial k}\frac{1}{\left[-\left(k-l\right)^{2}\right]^{a_{3}}} & =\frac{2a_{3}\left(k-l\right)}{\left[-\left(k-l\right)^{2}\right]^{a_{3}+1}}\\
+\frac{\partial}{\partial l}\frac{1}{\left[-\left(l^{2}\pm q\cdot l\right)\right]^{a_{5}}} & =\frac{a_{5}\left(2l+q\right)}{\left[-\left(l^{2}+q\cdot l\right)\right]^{a_{5}+1}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $J_{+}\left(q;a_{1},\ldots,a_{5}\right)$
+\end_inset
+
+，我找到了两个有用的关系
+\begin_inset Formula 
+\begin{align}
+(d-a_{1}-2a_{3}-a_{4}) & =a_{1}\mathbf{1}^{+}\left(\mathbf{3^{-}}-\mathbf{2}^{-}\right)+a_{4}\mathbf{4}^{+}\left(\mathbf{3}^{-}-\mathbf{5}^{-}\right)\label{eq:ex2-IBP1}\\
+(d-a_{2}-2a_{3}-a_{5}) & =a_{2}\mathbf{2}^{+}\left(\mathbf{3^{-}}-\mathbf{1}^{-}\right)+a_{5}\mathbf{5}^{+}\left(\mathbf{3}^{-}-\mathbf{4}^{-}\right)\label{eq:ex2-IBP2}
+\end{align}
+
+\end_inset
+
+利用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ex2-IBP1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，可将
+\begin_inset Formula $a_{2},a_{3},a_{5}$
+\end_inset
+
+之一降到
+\begin_inset Formula $0$
+\end_inset
+
+，如果
+\begin_inset Formula $a_{3}$
+\end_inset
+
+降到
+\begin_inset Formula $0$
+\end_inset
+
+，则
+\begin_inset Formula $k,l$
+\end_inset
+
+退耦，可分别计算；若
+\begin_inset Formula $a_{5}$
+\end_inset
+
+降到
+\begin_inset Formula $0$
+\end_inset
+
+，则可先积
+\begin_inset Formula $l$
+\end_inset
+
+，再积
+\begin_inset Formula $k$
+\end_inset
+
+；如果
+\begin_inset Formula $a_{2}$
+\end_inset
+
+降到
+\begin_inset Formula $0$
+\end_inset
+
+，则用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ex2-IBP2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式的特殊情况（
+\begin_inset Formula $a_{2}=0$
+\end_inset
+
+），将
+\begin_inset Formula $a_{3}$
+\end_inset
+
+或
+\begin_inset Formula $a_{4}$
+\end_inset
+
+降到
+\begin_inset Formula $0$
+\end_inset
+
+，如果
+\begin_inset Formula $a_{3}$
+\end_inset
+
+降为
+\begin_inset Formula $0$
+\end_inset
+
+，则
+\begin_inset Formula $k,l$
+\end_inset
+
+退耦；如果
+\begin_inset Formula $a_{4}$
+\end_inset
+
+降到
+\begin_inset Formula $0$
+\end_inset
+
+，则可先积
+\begin_inset Formula $k$
+\end_inset
+
+，再积
+\begin_inset Formula $l$
+\end_inset
+
+。最后得到结果
+\begin_inset Formula 
+\[
+q^{2}J_{+}\left(q^{2},1,1,1,1,1\right)=-\frac{\pi^{2}}{3}\left(\frac{2}{\epsilon}+4+8\log2-4\log q^{2}\right)-8\zeta\left(3\right)+\mathcal{O}\left(\epsilon\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+对于
+\begin_inset Formula $J_{-}\left(q;a_{1},\ldots,a_{5}\right)$
+\end_inset
+
+，有递推关系
+\begin_inset Formula 
+\begin{gather}
+2d-2a_{1}-2a_{2}-2a_{3}-a_{4}-a_{5}=a_{4}\mathbf{1}^{-}\mathbf{4}^{+}+a_{5}\mathbf{2}^{-}\mathbf{5}^{+}\label{eq:ex2-IBP3}\\
+d-2a_{3}-a_{4}=a_{4}\mathbf{4}^{+}\left(\mathbf{3}^{-}+\mathbf{5}^{-}-2\mathbf{2}^{-}\right)\quad(a_{1}=0)\label{eq:ex2-IBP4}\\
+d-2a_{3}-a_{5}=a_{5}\mathbf{5}^{+}\left(\mathbf{3}^{-}+\mathbf{4}^{-}-2\mathbf{1}^{-}\right)\quad(a_{2}=0)\label{eq:ex2-IBP5}
+\end{gather}
+
+\end_inset
+
+利用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ex2-IBP3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，可将
+\begin_inset Formula $a_{1}$
+\end_inset
+
+或
+\begin_inset Formula $a_{2}$
+\end_inset
+
+降为
+\begin_inset Formula $0$
+\end_inset
+
+。如果
+\begin_inset Formula $a_{1}$
+\end_inset
+
+降为
+\begin_inset Formula $0$
+\end_inset
+
+，则用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ex2-IBP4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+将
+\begin_inset Formula $a_{2},a_{3},a_{5}$
+\end_inset
+
+之一降为
+\begin_inset Formula $0$
+\end_inset
+
+；如果
+\begin_inset Formula $a_{2}$
+\end_inset
+
+降为
+\begin_inset Formula $0$
+\end_inset
+
+，则用
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ex2-IBP5"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+将
+\begin_inset Formula $a_{1},a_{3},a_{4}$
+\end_inset
+
+之一降为
+\begin_inset Formula $0$
+\end_inset
+
+。最后得到
+\begin_inset Formula $J_{-}\left(0,0,a_{3},a_{4},a_{5}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $J_{-}\left(0,a_{2},0,a_{4},a_{5}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $J_{-}\left(a_{1},0,0,a_{4},a_{5}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $J_{-}\left(0,a_{2},a_{3},a_{4},0\right)$
+\end_inset
+
+, 
+\begin_inset Formula $J_{-}\left(a_{1},0,a_{3},0,a_{5}\right)$
+\end_inset
+
+的线性组合。其中除了第一个
+\begin_inset Formula $J_{-}\left(0,0,a_{3},a_{4},a_{5}\right)$
+\end_inset
+
+以外，都可以将积分分解或者逐次进行计算。对于
+\begin_inset Formula $J_{-}\left(0,0,a_{3},a_{4},a_{5}\right)$
+\end_inset
+
+，
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+literal "false"
+
+\end_inset
+
+中说可以化成
+\begin_inset Formula $J_{-}\left(0,0,1,1,1\right)$
+\end_inset
+
+，但我目前还没有找到那个递推式，也不确定需要将
+\begin_inset Formula $J_{-}\left(0,0,1,1,1\right)$
+\end_inset
+
+算到
+\begin_inset Formula $\epsilon$
+\end_inset
+
+的第几阶（目前只能算到
+\begin_inset Formula $\mathcal{O}\left(\epsilon^{0}\right)$
+\end_inset
+
+阶），故放弃。
+\end_layout
+
+\begin_layout Subsubsection
+Hard-potential region
+\end_layout
+
+\begin_layout Standard
+能被称作Hard-potential region的区域不唯一，但贡献非0的是下面的这个，它其实是两个区域（
+\begin_inset Formula $k\leftrightarrow l$
+\end_inset
+
+），因此带有因子
+\begin_inset Formula $2$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+此区域中
+\begin_inset Formula $k\sim q,\:l_{0}\sim y/q,\:\mathbf{l}\sim\sqrt{y}$
+\end_inset
+
+。
+\begin_inset Formula $k-l\sim k$
+\end_inset
+
+，因此
+\begin_inset Formula $k,l$
+\end_inset
+
+退耦，它们各自分别按hard, potential方式展开：
+\begin_inset Formula 
+\[
+I_{2}^{h-p}=2\int\frac{\left[dl\right]}{\left(-\mathbf{l}^{2}+q_{0}l_{0}-y\right)\left(-\mathbf{l}^{2}-q_{0}l_{0}-y\right)}\int\frac{\left[dk\right]}{k^{2}\left(k^{2}+q\cdot k\right)\left(k^{2}-q\cdot k\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+利用与例1相同的方法，得到
+\begin_inset Formula 
+\[
+I_{2}^{h-p}=\frac{8\pi\sqrt{y}}{q^{3}}\left(\frac{1}{\epsilon}-\ln q^{2}-\ln y\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Potential-potential region
+\end_layout
+
+\begin_layout Standard
+在此区域中
+\begin_inset Formula $k_{0},l_{0}\sim\lambda^{2}q$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{k},\mathbf{l}\sim\lambda q$
+\end_inset
+
+。仿照例1的potential region（
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ex1-Ip"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式）做展开，
+\begin_inset Formula 
+\begin{align*}
+I_{2}^{p-p} & =\frac{-1}{q^{2}}e^{2\epsilon\gamma_{E}}\int\frac{d^{d-1}kd^{d-1}l}{\text{\ensuremath{\pi^{d/2-1}\pi^{d/2-1}}}}\frac{1}{\left(\mathbf{k}^{2}+y\right)\left(\mathbf{l}^{2}+y\right)\left(\mathbf{k}-\mathbf{l}\right)^{2}}
+\end{align*}
+
+\end_inset
+
+算得
+\begin_inset Formula 
+\begin{align*}
+I_{2}^{p-p} & =\frac{y^{-2\epsilon}}{q^{2}}e^{2\epsilon\gamma_{E}}\frac{\Gamma\left(\epsilon-\frac{1}{2}\right)\Gamma\left(\epsilon+\frac{1}{2}\right)}{2\epsilon}\\
+ & =\frac{\pi^{2}}{q^{2}}\left(-\frac{1}{\epsilon}-2+4\ln2+2\ln y\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Potential-ultrasoft region
+\end_layout
+
+\begin_layout Standard
+能被称作Potential-ultrasoft region的区域不唯一，这里说的只是有非零贡献的。其中ultrasoft的动量指的是
+\begin_inset Formula $k-l$
+\end_inset
+
+，而不是
+\begin_inset Formula $k,l$
+\end_inset
+
+中的哪一个。因此不妨令
+\begin_inset Formula $k\rightarrow k+l/2,\:l\rightarrow k-l/2$
+\end_inset
+
+，其中
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+左边的是旧变量，右边的是新变量，得到的新变量的scale为
+\begin_inset Formula $k_{0}\sim\lambda^{2}q,\:\mathbf{k}\sim\lambda q$
+\end_inset
+
+（potential），
+\begin_inset Formula $l\sim\lambda^{2}q$
+\end_inset
+
+（ultrasoft）。对新的
+\begin_inset Formula $k,l$
+\end_inset
+
+做相应的展开得
+\begin_inset Formula 
+\begin{align*}
+I_{2}^{p-us} & =\int\frac{\left[dk\right]\left[dl\right]}{\left(-\mathbf{k}^{2}+q_{0}\left(k_{0}+l_{0}/2\right)-y\right)\left(-\mathbf{k}^{2}-q_{0}\left({\color{red}k_{0}}+l_{0}/2\right)-y+ie_{1}\right)}\\
+ & \qquad\times\frac{1}{\left(-\mathbf{k}^{2}+q_{0}\left(k_{0}-l_{0}/2\right)-y\right)\left(-\mathbf{k}^{2}-q_{0}\left({\color{red}k_{0}}-l_{0}/2\right)-y+ie_{2}\right)\left(l_{0}^{2}-\mathbf{l}^{2}\right)}
+\end{align*}
+
+\end_inset
+
+做
+\begin_inset Formula $k_{0},l_{0}$
+\end_inset
+
+积分，其中
+\begin_inset Formula $k_{0}$
+\end_inset
+
+取
+\color red
+红色
+\color inherit
+部分的pole的留数：
+\begin_inset Formula 
+\begin{align}
+I_{2}^{p-us} & =\frac{1}{-q}e^{\epsilon\gamma_{E}}\int\frac{d^{d-1}k\left[dl\right]}{i\pi^{d/2}}\frac{\pi i}{2\left(-\mathbf{k}^{2}-y\right)\left(l_{0}^{2}-\mathbf{l}^{2}+i0\right)\left(q_{0}l_{0}+ie\right)}\nonumber \\
+ & \qquad\times\left(\frac{1}{-\mathbf{k}^{2}-q_{0}l_{0}/2-y+i0}-\frac{1}{-\mathbf{k}^{2}+q_{0}l_{0}/2-y+i0}\right)\nonumber \\
+ & =\frac{1}{-q}e^{2\epsilon\gamma_{E}}\int\frac{d^{d-1}kd^{d-1}l}{\pi^{d/2-1}i\pi^{d/2}}\frac{2\pi i}{2\left(-\mathbf{k}^{2}-y\right)}\nonumber \\
+ & \qquad\times\left(\frac{\left(-1\right)}{2\left|\mathbf{l}\right|q_{0}\left|\mathbf{l}\right|\left(-\mathbf{k}^{2}-q_{0}\left|\mathbf{l}\right|/2-y\right)}+{\color{blue}\frac{\left(-1\right)}{\left(-\mathbf{l}^{2}\right)q_{0}\left(-\mathbf{k}^{2}-y\right)}}-\frac{1}{-2\left|\mathbf{l}\right|\left(-q_{0}\left|\mathbf{l}\right|\right)\left(-\mathbf{k}^{2}-q_{0}\left|\mathbf{l}\right|/2-y\right)}\right)\nonumber \\
+ & =\frac{1}{q^{2}}e^{2\epsilon\gamma_{E}}\int\frac{d^{d-1}kd^{d-1}l}{\pi^{d/2-1}\pi^{d/2-1}}\frac{1}{2\left(-\mathbf{k}^{2}-y\right)}\left(\frac{1}{\mathbf{l}^{2}\left(-\mathbf{k}^{2}-q_{0}\left|\mathbf{l}\right|/2-y\right)}+{\color{blue}0}+\frac{1}{\mathbf{l}^{2}\left(-\mathbf{k}^{2}-q_{0}\left|\mathbf{l}\right|/2-y\right)}\right)\nonumber \\
+ & =\frac{1}{q^{2}}e^{2\epsilon\gamma_{E}}\int\frac{d^{d-1}kd^{d-1}l}{\pi^{d/2-1}\pi^{d/2-1}}\frac{1}{\left(\mathbf{k}^{2}+y\right)\mathbf{l}^{2}\left(\mathbf{k}^{2}+q_{0}\left|\mathbf{l}\right|/2+y\right)}\label{eq:ex2-Ip_us}
+\end{align}
+
+\end_inset
+
+其中
+\begin_inset Formula $e=e_{2}-e_{1}$
+\end_inset
+
+，假设
+\begin_inset Formula $e>0$
+\end_inset
+
+，其实大于小于
+\begin_inset Formula $0$
+\end_inset
+
+无所谓，
+\color blue
+蓝色
+\color inherit
+部分是
+\begin_inset Formula $\mathbf{l}$
+\end_inset
+
+的无标度积分。
+\begin_inset Formula $l_{0}$
+\end_inset
+
+积分的前半部分选下半平面（顺时针，有
+\begin_inset Formula $\left(-1\right)$
+\end_inset
+
+），后半部分选上半平面（逆时针）。
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ex2-Ip_us"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式先对
+\begin_inset Formula $\mathbf{l}$
+\end_inset
+
+积分再对
+\begin_inset Formula $\mathbf{k}$
+\end_inset
+
+积分得到
+\begin_inset Formula 
+\[
+I_{2}^{p-us}=\frac{8\pi\sqrt{y}}{q^{3}}\left(-\frac{1}{\epsilon}-8+10\ln2-\ln q^{2}+3\ln y\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+其他区域
+\end_layout
+
+\begin_layout Standard
+太多了一下分析不完。举例来说像soft-soft region这样的
+\begin_inset Formula 
+\[
+I_{2}^{s-s}=\int\frac{\left[dl\right]\left[dk\right]}{\left(q\cdot l\right)^{2}\left(q\cdot k\right)^{2}\left(l-k\right)^{2}}
+\]
+
+\end_inset
+
+其实是无标度积分。BTW，我不认为在soft region下能按
+\begin_inset Formula $k_{0}^{2}$
+\end_inset
+
+做展开。
+\end_layout
+
+\begin_layout Subsection
+单圈2到2散射
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A) at (-3,1); 
+\backslash
+coordinate (B) at (3,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (C) at (-3,-1); 
+\backslash
+coordinate (D) at (3,-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (E) at ($(A)!0.3!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (F) at ($(C)!0.3!(D)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (G) at ($(A)!0.7!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (H) at ($(C)!0.7!(D)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion] (A) node[left]{$p_1$} -- (B) node[right]{$p_3$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[antifermion] (C) node[left]{$p_2$} -- (D) node[right]{$p_4$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (E) -- node[right]{$k$} (F);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (G) -- node[right]{$k+p_1-p_3$} (H);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example 3
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ex3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ex3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，这是个soft region有非零贡献的例子。我们令
+\begin_inset Formula $p,q,y$
+\end_inset
+
+的定义与例1一致，而
+\begin_inset Formula $p'=\left(p_{3}-p_{4}\right)/2$
+\end_inset
+
+, 
+\begin_inset Formula $t=\left(p'-p\right)^{2}$
+\end_inset
+
+，
+\begin_inset Formula 
+\[
+I_{3}=\int\frac{\left[dk\right]}{\left[\left(k+p\right)^{2}+q\cdot k-y\right]\left[\left(k+p\right)^{2}-q\cdot k-y\right]k^{2}\left(k+p-p'\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+按
+\begin_inset Formula $k$
+\end_inset
+
+的hard,potential,soft,ultrasoft划分区域。
+\end_layout
+
+\begin_layout Subsubsection
+Hard region
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p,p'\sim\sqrt{y}\ll q\sim k$
+\end_inset
+
+，
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{3}^{h}=\int\frac{\left[dk\right]}{\left[k^{2}+q\cdot k\right]\left[k+p^{2}+q\cdot k\right]k^{2}\left(k+p-p'\right)^{2}}
+\]
+
+\end_inset
+
+算得
+\begin_inset Formula 
+\[
+I_{3}^{h}=-\frac{8}{3}\frac{1}{q^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Potential region
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $k_{0}\sim y/q\ll\sqrt{y}\sim p,p',\mathbf{k}$
+\end_inset
+
+，按
+\begin_inset Formula $k_{0}\sim\lambda^{2}q,\mathbf{k}\sim\lambda q$
+\end_inset
+
+展开，然后仿照
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ex1-Ip"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+对
+\begin_inset Formula $k_{0}$
+\end_inset
+
+积分
+\begin_inset Formula 
+\begin{align*}
+I_{3}^{p} & =\int\frac{\left[dk\right]}{\left[-\left(\mathbf{k}+\mathbf{p}\right)^{2}+q_{0}k_{0}-y\right]\left[-\left(\mathbf{k}+\mathbf{p}\right)^{2}-q_{0}k_{0}-y\right]\left(-\mathbf{k}^{2}\right)\left[-\left(\mathbf{k}+\mathbf{p}-\mathbf{p'}\right)^{2}\right]}\\
+ & =\frac{e^{\epsilon\gamma_{\text{E}}}}{q_{0}}\int\frac{d^{d-1}k}{\pi^{d/2-1}}\frac{1}{\left[\mathbf{\left(\mathbf{k}+\mathbf{p}\right)}^{2}+y\right]\mathbf{k}^{2}\left(\mathbf{k}+\mathbf{p}-\mathbf{p'}\right)^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+算得
+\begin_inset Formula 
+\[
+I_{3}^{p}=\frac{\pi}{qt\sqrt{y}}\left(\frac{1}{\epsilon}-\ln\left(-t\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Soft region
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $k,p,p'\sim\sqrt{y}\ll q$
+\end_inset
+
+，按
+\begin_inset Formula $k\sim\lambda q$
+\end_inset
+
+展开
+\begin_inset Formula 
+\begin{align*}
+I_{3}^{s} & =\int\frac{\left[dk\right]}{\left(+q_{0}k_{0}\right)\left(-q_{0}k_{0}\right)k^{2}\left(k+p-p'\right)^{2}}\\
+ & =\frac{-1}{q^{2}}\int\frac{\left[dk\right]}{k_{0}^{2}k^{2}\left(k+p-p'\right)^{2}}
+\end{align*}
+
+\end_inset
+
+对
+\begin_inset Formula $k_{0}$
+\end_inset
+
+积分，积分实际上是发散的，这是因为
+\begin_inset Formula $k_{0}=0$
+\end_inset
+
+的pole是pinched的，但按照
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+literal "false"
+
+\end_inset
+
+它必须被ignored，你可能好奇它怎么能被ignored，我的答案是减去一些像
+\begin_inset Formula 
+\[
+\int\frac{\left[dk\right]}{k_{0}^{2}\mathbf{k}^{2}\left(\mathbf{k}+\mathbf{p}-\mathbf{p}'\right)^{2}}
+\]
+
+\end_inset
+
+这样的关于
+\begin_inset Formula $k_{0}$
+\end_inset
+
+的无标度积分，直到
+\begin_inset Formula $k_{0}$
+\end_inset
+
+ regular为止。总之只需考虑
+\begin_inset Formula $k_{0}=\pm\left|\mathbf{k}\right|,k_{0}=\pm\left|\mathbf{k}+\mathbf{p}-\mathbf{p}'\right|$
+\end_inset
+
+这样的pole。不妨选积分围道往上半平面绕，pole的
+\begin_inset Formula $\pm$
+\end_inset
+
+取
+\begin_inset Formula $-$
+\end_inset
+
+，得到
+\begin_inset Formula 
+\begin{align}
+I_{3}^{s} & =\frac{-1}{q^{2}}\int\frac{e^{\epsilon\gamma_{\text{E}}}d^{d-1}k}{i\pi^{d/2}}2\pi i\left(\frac{1}{\mathbf{k}^{2}\left(-2\left|\mathbf{k}\right|\right)\left[\mathbf{k}^{2}-\left(\mathbf{k}+\mathbf{p}-\mathbf{p}'\right)^{2}\right]}+\frac{1}{\left(\mathbf{k}+\mathbf{p}-\mathbf{p}'\right)^{2}\left[\left(\mathbf{k}+\mathbf{p}-\mathbf{p}'\right)^{2}-\mathbf{k}^{2}\right]\left(-2\left|\mathbf{k}+\mathbf{p}-\mathbf{p}'\right|\right)}\right)\nonumber \\
+ & =\frac{e^{\epsilon\gamma_{\text{E}}}}{q^{2}}\int\frac{d^{d-1}k}{\pi^{d/2-1}}\left(\frac{1}{\left|\mathbf{k}\right|^{3}\left[\mathbf{k}^{2}-\left(\mathbf{k}+\mathbf{p}-\mathbf{p}'\right)^{2}+i0\right]}-\frac{1}{\left|\mathbf{k}+\mathbf{p}-\mathbf{p}'\right|^{3}\left[\mathbf{k}^{2}-\left(\mathbf{k}+\mathbf{p}-\mathbf{p}'\right)^{2}+i0\right]}\right)\label{eq:ex3-Is}
+\end{align}
+
+\end_inset
+
+关于上式两项中为何都取
+\begin_inset Formula $+i0$
+\end_inset
+
+，这里有一个
+\series bold
+要点
+\series default
+：如果按照传播子自然的取法，第二项中应该是
+\begin_inset Formula $-i0$
+\end_inset
+
+才对，但是我们应该注意到，当
+\begin_inset Formula $\left|\mathbf{k}\right|\rightarrow\left|\mathbf{k}+\mathbf{p}-\mathbf{p}'\right|$
+\end_inset
+
+时，pole趋于dipole，这时对
+\begin_inset Formula $k_{0}$
+\end_inset
+
+应用留数定理时pole处的虚部不能忽略：
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{2\pi i}\int\frac{f\left(z\right)dz}{\left(z-z_{1}-i\epsilon_{1}\right)\left(z-z_{2}-i\epsilon_{2}\right)} & =\frac{f\left(z_{1}-i\epsilon_{1}\right)}{\left[z_{1}-z_{2}+i\left(\epsilon_{1}-\epsilon_{2}\right)\right]}+\frac{f\left(z_{2}-i\epsilon_{2}\right)}{\left[z_{2}-z_{1}-i\left(\epsilon_{1}-\epsilon_{2}\right)\right]}\\
+ & =\frac{1}{\left[z_{1}-z_{2}+i\left(\epsilon_{1}-\epsilon_{2}\right)\right]}\left[f\left(z_{1}-i\epsilon_{1}\right)-f\left(z_{2}-i\epsilon_{2}\right)\right]\\
+ & =\frac{f\left(z_{1}\right)-f\left(z_{2}\right)}{z_{1}-z_{2}+i\epsilon}\quad(\epsilon=\epsilon_{1}-\epsilon_{2})
+\end{align*}
+
+\end_inset
+
+可见上式结果的两项中
+\begin_inset Formula $i\epsilon$
+\end_inset
+
+同号，倒不一定非要
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+，
+\begin_inset Formula $\epsilon=0$
+\end_inset
+
+或
+\begin_inset Formula $\epsilon<0$
+\end_inset
+
+也是可以的。
+\end_layout
+
+\begin_layout Standard
+对
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ex3-Is"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+式第二项做变换
+\begin_inset Formula $\mathbf{k}+\mathbf{p}-\mathbf{p}'\rightarrow-\mathbf{k}$
+\end_inset
+
+（这不只是平移），得到
+\begin_inset Formula 
+\begin{align*}
+I_{3}^{s} & =\frac{e^{\epsilon\gamma_{\text{E}}}}{q^{2}}\int\frac{d^{d-1}k}{\pi^{d/2-1}}\frac{1}{\left(\mathbf{k}^{2}\right)^{3/2}}\left(\frac{1}{\mathbf{k}^{2}-\left(\mathbf{k}+\mathbf{p}-\mathbf{p}'\right)^{2}+i0}-\frac{1}{\left(\mathbf{k}+\mathbf{p}-\mathbf{p}'\right)^{2}-\mathbf{k}^{2}+i0}\right)\\
+ & =\frac{e^{\epsilon\gamma_{\text{E}}}}{q^{2}}\int\frac{d^{d-1}k}{\pi^{d/2-1}}\frac{1}{\left(\mathbf{k}^{2}\right)^{3/2}}\left(\frac{1}{-2\mathbf{k}\cdot\left(\mathbf{p}-\mathbf{p}'\right)-\left(\mathbf{p}-\mathbf{p}'\right)^{2}+i0}+\frac{1}{-2\mathbf{k}\cdot\left(\mathbf{p}-\mathbf{p}'\right)-\left(\mathbf{p}-\mathbf{p}'\right)^{2}-i0}\right)\\
+ & =\frac{e^{\epsilon\gamma_{\text{E}}}}{q^{2}}\int\frac{d^{d-1}k}{\pi^{d/2-1}}\frac{1}{\left(\mathbf{k}^{2}\right)^{3/2}}\left(\frac{1}{-2\mathbf{k}\cdot\left(\mathbf{p}-\mathbf{p}'\right)+t+i0}+\frac{1}{-2\mathbf{k}\cdot\left(\mathbf{p}-\mathbf{p}'\right)+t-i0}\right)
+\end{align*}
+
+\end_inset
+
+最后得到
+\begin_inset Formula 
+\[
+I_{3}^{s}=\frac{4}{q^{2}t}\left[-\frac{1}{\epsilon}+\ln\left(-t\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+两圈顶点积分
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (O) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A) at (3,1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B) at (3,-1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (C) at (-0.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (N1) at ($(O)!0.2!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A1) at ($(O)!0.4!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (N2) at ($(O)!0.6!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A2) at ($(O)!0.8!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (N3) at ($(O)!0.2!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B1) at ($(O)!0.4!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (N4) at ($(O)!0.6!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B2) at ($(O)!0.8!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion] (B) node[above] {$p_2$} -- (O);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion] (O) -- (A) node[below]{$p_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (N1) node[above]{$1$} (N2) node[above]{$2$} (N3) node[below]{$3$} (N4)
+ node[below]{$4$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scalar] (C) -- node[below]{$q$} (O);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (A1) -- node[right]{$5$} (B1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (A2) -- node[right]{$6$} (B2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (O) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A) at (3,1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B) at (3,-1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (C) at (-0.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (D) at (2,-0.2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (N1) at ($(O)!0.2!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A1) at ($(O)!0.4!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (N2) at ($(O)!0.6!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A2) at ($(O)!0.8!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (N3) at ($(O)!0.2!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B1) at ($(O)!0.7!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion] (B) node[above] {$p_2$} -- (O);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion] (O) -- (A) node[below]{$p_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (N1) node[above]{$1$} (N2) node[above]{$2$} (N3) node[below]{$3$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scalar] (C) -- node[below]{$q$} (O);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (A1) -- node[below left]{$4$} (D);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (A2) -- node[right]{$5$} (D);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (B1) -- node[right]{$6$} (D);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (O) at (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A) at (3,1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B) at (3,-1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (C) at (-0.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A1) at ($(O)!0.4!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (A2) at ($(O)!0.8!(A)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B1) at ($(O)!0.4!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (B2) at ($(O)!0.8!(B)$);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion] (B) node[above] {$p_2$} -- (O);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fermion] (O) -- (A) node[below]{$p_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scalar] (C) -- node[below]{$q$} (O);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (A1) -- (B2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[photon] (A2) -- (B1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example 4
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ex4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+我就画个图看看（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ex4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+超几何函数
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hyperF\left(a,b;c;z\right)=\frac{\Gamma\left(c\right)}{\Gamma\left(b\right)\Gamma\left(c-b\right)}\int_{0}^{1}\mathrm{d}x\;x^{b-1}\left(1-x\right)^{c-b-1}\left(1-zx\right)^{-a}
+\]
+
+\end_inset
+
+有生之年。
+\end_layout
+
+\begin_layout Section
+关于维数正规化，解析正规化，Strategy of regins的理解
+\end_layout
+
+\begin_layout Standard
+还没有组织好语言，有生之年吧。
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+V.
+ A.
+ Smirnov, Feynman integral calculus, Springer-Verlag Berlin Heidelberg,
+ 2006.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+M.
+ Beneke, V.
+ A.
+ Smirnov, Nucl.
+ Phys.
+ 
+\series bold
+B
+\series default
+522, (1998), 321-344.
+ 
+\end_layout
+
+\end_body
+\end_document
